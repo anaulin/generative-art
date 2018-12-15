@@ -2,7 +2,7 @@
 
 An experiment with a simple circle packing implementation.
 
-The degree of packing can be varied altering the `MIN_RADIUS` and `TOTAL_CIRCLE_ATTEMPTS` variables.
+The degree of packing can be varied altering the `MIN_RADIUS`, `MAX_RADIUS` and `TOTAL_CIRCLE_ATTEMPTS` variables.
 
 Example outputs (click to go to full resolution file):
 
