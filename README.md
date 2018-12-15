@@ -1,10 +1,10 @@
-# Circle packing makes pretty pictures
+# Circle packing
 
-Simple circle packing implementation.
+An experiment with a simple circle packing implementation.
 
 The degree of packing can be varied altering the `MIN_RADIUS` and `TOTAL_CIRCLE_ATTEMPTS` variables.
 
-Example outputs:
+Example outputs (click to go to full resolution file):
 
 ![](images/circle-pack-palette1-1.jpg)
 
