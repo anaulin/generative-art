@@ -3,25 +3,51 @@ import math
 import random
 
 
+# Palette #1
 YELLOW = '#EEC525'
-TAN = '#A68260'
 LIGHT_PINK = '#C05F73'
 RASPBERRY = '#9D2045'
 PURPLE = '#511253'
 PLUM = '#3A1B3D'
+PALETTE_1 = {
+    # Bright yellow
+    'background': YELLOW,
+    'colors': [LIGHT_PINK, RASPBERRY, PURPLE, PLUM]
+}
 
-# 4K resolution: 3840 x 2160
+# Palette #2
+BEIGE = '#EDEDCF'
+DARK_BLUE = '#102F45'
+AQUA = '#27A8A8'
+GREY_BLUE = '#78A6A8'
+PALETTE_2 = {
+    'background': BEIGE,
+    'colors': [DARK_BLUE, AQUA, GREY_BLUE]
+}
+
+# Palette #3
+WHITE = '#F6F3F2'
+TAN = '#8B7266'
+GREY_PURPLE = '#9B8791'
+MAROON = '#7B4955'
+DARK_PURPLE = '#35303D'
+PALETTE_3 = {
+    'background': DARK_PURPLE,
+    'colors': [WHITE, TAN, GREY_PURPLE, MAROON]
+}
+
+# Final image dimensions
 IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
-#IMG_HEIGHT = 1000
-#IMG_WIDTH = 1000
 
-MIN_RADIUS = int(IMG_HEIGHT / 100)
-MAX_RADIUS = int(IMG_HEIGHT / 4)
+# Circle paramaters
+MIN_RADIUS = int(IMG_HEIGHT / 150)
+MAX_RADIUS = int(IMG_HEIGHT / 7)
 
-MAX_NEW_CIRCLE_ATTEMPTS = 100
+TOTAL_CIRCLE_ATTEMPTS = 100000
 
-SPACING = 1
+# Empty distance between circles
+SPACING = 2
 
 
 class Circle:
@@ -80,42 +106,42 @@ def randomCircleWithRadius(radius):
 def makeRandomCircle(circles):
     # simple version, without "growing" circles to pack the space
     # return makeRandomCircleSeed(circles, radius=random.randint(MIN_RADIUS, MAX_RADIUS))
-    c = makeRandomCircleSeed(circles)
+    c = maybeMakeRandomCircleSeed(circles)
     if not c:
         return None
 
     return c.pack(circles)
 
 
-def makeRandomCircleSeed(circles, radius=MIN_RADIUS):
+def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
     c = randomCircleWithRadius(radius)
-    for _ in range(MAX_NEW_CIRCLE_ATTEMPTS):
-        if not c.intersectsAnythingElse(circles):
-            break
-        c = randomCircleWithRadius(radius)
-
     if c.intersectsAnythingElse(circles):
-        # For the case where despite all the tries it didn't work
+        # Did not succeed at finding a good spot
         return None
 
     return c
 
 
 def main():
-    img = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT), color=YELLOW)
+    img = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT),
+                    color=PALETTE_3['background'])
 
     circles = []
-    for _ in range(500):
+    for _ in range(TOTAL_CIRCLE_ATTEMPTS):
         c = makeRandomCircle(circles)
         if c:
+            print("New circle added. Total circles: ", len(circles))
             circles.append(c)
+        else:
+            print(".")
 
     draw = ImageDraw.Draw(img)
     for c in circles:
         draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
-                     fill=random.choice([PURPLE, LIGHT_PINK, RASPBERRY, PLUM]))
+                     fill=random.choice(PALETTE_3['colors']))
 
     img.show()
+    #img.save('images/circle-pack-palette1-4.jpg', 'jpeg')
 
 
 if __name__ == "__main__":
