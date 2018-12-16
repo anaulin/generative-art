@@ -121,10 +121,25 @@ def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
 
     return c
 
+def concentric(draw, circle, color, background):
+    (center_x, center_y) = circle.center()
+    # First color is outside color -- not background
+    next_color = color
+    for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS/2)):
+        print('making circle with radius: ', radius)
+        top_left_x = center_x - radius
+        top_left_y = center_y - radius
+        draw.ellipse([top_left_x, top_left_y, top_left_x + 2 * radius, top_left_y + 2 * radius], fill=next_color)
+        if next_color == background:
+            next_color = color
+        else:
+            next_color = background
 
-def main():
+
+
+def main(palette=PALETTE_1, filename=None):
     img = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT),
-                    color=PALETTE_3['background'])
+                    color=palette['background'])
 
     circles = []
     for _ in range(TOTAL_CIRCLE_ATTEMPTS):
@@ -137,12 +152,18 @@ def main():
 
     draw = ImageDraw.Draw(img)
     for c in circles:
-        draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
-                     fill=random.choice(PALETTE_3['colors']))
+        concentric(draw, c, random.choice(palette['colors']), palette['background'])
+        #draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
+        #             fill=random.choice(palette['colors']))
 
     img.show()
-    #img.save('images/circle-pack-palette1-4.jpg', 'jpeg')
+    if filename:
+        img.save(filename, 'jpeg')
 
 
 if __name__ == "__main__":
-    main()
+    palettes = [PALETTE_1, PALETTE_2, PALETTE_3]
+    counter = 1
+    for p in palettes:
+        main(palette=p, filename="images/circle-pack-concentric-{}.jpg".format(counter))
+        counter += 1
