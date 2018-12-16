@@ -8,11 +8,16 @@ Example outputs (click to go to full resolution file):
 
 ![](images/circle-pack-palette1-1.jpg)
 
-![](images/circle-pack-palette1-2.jpg)
 
 ![](images/circle-pack-palette1-3.jpg)
 
 ![](images/circle-pack-palette1-4.jpg)
+
+With concentric circles:
+
+![](images/circle-pack-concentric-2.jpg)
+
+More samples in the `images` folder in this repo.
 
 ## Credits
 
