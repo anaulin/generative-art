@@ -38,12 +38,12 @@ PALETTE_3 = {
 
 PALETTE_4 = {
     'background': '#090909',
-    'colors': [ '#4B5043', '#9BC4BC', '#D3FFE9', '#8DDBE0']
+    'colors': ['#4B5043', '#9BC4BC', '#D3FFE9', '#8DDBE0']
 }
 
 PALETTE_5 = {
     'background': '#6E44FF',
-    'colors': [ '#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85']
+    'colors': ['#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85']
 }
 
 PALETTE_6 = {
@@ -136,6 +136,7 @@ def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
 
     return c
 
+
 def concentric(draw, circle, colors, background):
     (center_x, center_y) = circle.center()
     # First color is outside color -- not background
@@ -143,12 +144,12 @@ def concentric(draw, circle, colors, background):
     for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * 1.5)):
         top_left_x = center_x - radius
         top_left_y = center_y - radius
-        draw.ellipse([top_left_x, top_left_y, top_left_x + 2 * radius, top_left_y + 2 * radius], fill=next_color)
+        draw.ellipse([top_left_x, top_left_y, top_left_x + 2 *
+                      radius, top_left_y + 2 * radius], fill=next_color)
         if next_color == background:
             next_color = random.choice(colors)
         else:
             next_color = background
-
 
 
 def main(palette=PALETTE_1, filename=None):
@@ -167,7 +168,7 @@ def main(palette=PALETTE_1, filename=None):
     draw = ImageDraw.Draw(img)
     for c in circles:
         concentric(draw, c, palette['colors'], palette['background'])
-        #draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
+        # draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
         #             fill=random.choice(palette['colors']))
 
     img.show()
@@ -176,7 +177,8 @@ def main(palette=PALETTE_1, filename=None):
 
 
 if __name__ == "__main__":
-    palettes = [PALETTE_1, PALETTE_2, PALETTE_3, PALETTE_4, PALETTE_5, PALETTE_6]
+    palettes = [PALETTE_1, PALETTE_2, PALETTE_3,
+                PALETTE_4, PALETTE_5, PALETTE_6]
     #palettes = [PALETTE_6]
     counter = 1
     for p in palettes:
