@@ -4,15 +4,15 @@ import random
 
 
 # Palette #1
+BEIGE = '#EDEDCF'
 YELLOW = '#EEC525'
 LIGHT_PINK = '#C05F73'
 RASPBERRY = '#9D2045'
 PURPLE = '#511253'
 PLUM = '#3A1B3D'
 PALETTE_1 = {
-    # Bright yellow
-    'background': YELLOW,
-    'colors': [LIGHT_PINK, RASPBERRY, PURPLE, PLUM]
+    'background': BEIGE,
+    'colors': [LIGHT_PINK, RASPBERRY, PURPLE, PLUM, YELLOW]
 }
 
 # Palette #2
@@ -34,6 +34,21 @@ DARK_PURPLE = '#35303D'
 PALETTE_3 = {
     'background': DARK_PURPLE,
     'colors': [WHITE, TAN, GREY_PURPLE, MAROON]
+}
+
+PALETTE_4 = {
+    'background': '#090909',
+    'colors': [ '#4B5043', '#9BC4BC', '#D3FFE9', '#8DDBE0']
+}
+
+PALETTE_5 = {
+    'background': '#6E44FF',
+    'colors': [ '#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85']
+}
+
+PALETTE_6 = {
+    'background': PALETTE_5['background'],
+    'colors': PALETTE_1['colors'] + PALETTE_5['colors']
 }
 
 # Final image dimensions
@@ -121,17 +136,16 @@ def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
 
     return c
 
-def concentric(draw, circle, color, background):
+def concentric(draw, circle, colors, background):
     (center_x, center_y) = circle.center()
     # First color is outside color -- not background
-    next_color = color
-    for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS/2)):
-        print('making circle with radius: ', radius)
+    next_color = random.choice(colors)
+    for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * 1.5)):
         top_left_x = center_x - radius
         top_left_y = center_y - radius
         draw.ellipse([top_left_x, top_left_y, top_left_x + 2 * radius, top_left_y + 2 * radius], fill=next_color)
         if next_color == background:
-            next_color = color
+            next_color = random.choice(colors)
         else:
             next_color = background
 
@@ -152,7 +166,7 @@ def main(palette=PALETTE_1, filename=None):
 
     draw = ImageDraw.Draw(img)
     for c in circles:
-        concentric(draw, c, random.choice(palette['colors']), palette['background'])
+        concentric(draw, c, palette['colors'], palette['background'])
         #draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
         #             fill=random.choice(palette['colors']))
 
@@ -162,8 +176,9 @@ def main(palette=PALETTE_1, filename=None):
 
 
 if __name__ == "__main__":
-    palettes = [PALETTE_1, PALETTE_2, PALETTE_3]
+    palettes = [PALETTE_1, PALETTE_2, PALETTE_3, PALETTE_4, PALETTE_5, PALETTE_6]
+    #palettes = [PALETTE_6]
     counter = 1
     for p in palettes:
-        main(palette=p, filename="images/circle-pack-concentric-{}.jpg".format(counter))
+        main(palette=p)
         counter += 1
