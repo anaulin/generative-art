@@ -22,7 +22,7 @@ With more variation in the colors of the circles, and thicker circles:
 
 ![](images/circle-pack-concentric-random-colors-2.jpg)
 
-More samples in the `images` folder in this repo.
+More samples in the `images` folder in this repo: https://github.com/anaulin/circle-packing/tree/master/images
 
 ## Credits
 
