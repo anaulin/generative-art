@@ -24,6 +24,8 @@ With more variation in the colors of the circles, and thicker circles:
 
 More samples in the `images` folder in this repo: https://github.com/anaulin/circle-packing/tree/master/images
 
+See also: https://github.com/anaulin/square-packing
+
 ## Credits
 
 This code is heavily based on Tim Holman's Generative Artistry Circle Packing tutorial: https://generativeartistry.com/tutorials/circle-packing/
