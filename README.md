@@ -6,6 +6,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Circle packing](#circle-packing)
   - [Square packing](#square-packing)
   - [Auto-Mondrian](#auto-mondrian)
+  - [Tiled lines](#tiled-lines)
 
 ## Circle packing
 
@@ -33,3 +34,12 @@ Example output:
 ![](auto-mondrian/output-1.png)
 
 More in the [auto-mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto-mondrian/) and its [README](auto-mondrian/README.md).
+
+
+## Tiled lines
+
+Example output:
+
+![](tiled-lines/output-3.png)
+
+More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tree/master/tiled-lines/) and its [README](tiled-lines/README.md).
