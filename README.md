@@ -2,6 +2,10 @@
 
 Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
 
+- [Generative art experiments](#generative-art-experiments)
+  - [Circle packing](#circle-packing)
+  - [Square packing](#square-packing)
+
 ## Circle packing
 
 Example outputs:
@@ -17,3 +21,13 @@ With more variation in the colors of the circles, and thicker circles:
 ![](circle-packing/images/circle-pack-concentric-random-colors-6.jpg)
 
 More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle-packing) and its [README](circle-packing/README.md).
+
+## Square packing
+
+Example outputs:
+
+![](square-packing/images/linear-gradient-2.png)
+
+![](square-packing/images/output.png)
+
+More in the [square-packing directory](https://github.com/anaulin/generative-art/tree/master/square-packing/) and its [README](square-packing/README.md)
