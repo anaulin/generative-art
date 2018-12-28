@@ -7,6 +7,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Square packing](#square-packing)
   - [Auto-Mondrian](#auto-mondrian)
   - [Tiled lines](#tiled-lines)
+  - [Fingers](#fingers)
 
 ## Circle packing
 
@@ -47,3 +48,11 @@ Example output:
 ![](tiled-lines/output-1-color.png)
 
 More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tree/master/tiled-lines/) and its [README](tiled-lines/README.md).
+
+## Fingers
+
+Example output:
+
+![](fingers/output.png)
+
+More in the [fingers directory](https://github.com/anaulin/generative-art/tree/master/fingers/) and its [README](fingers/README.md).
