@@ -18,6 +18,7 @@ def draw_line(ctx, x, y, width, height):
         ctx.line_to(x, y + height)
 
     ctx.set_line_width(LINE_WIDTH)
+    ctx.set_line_cap(cairo.LineCap.ROUND)
     ctx.set_source_rgb(0, 0, 0)
     ctx.stroke()
 
