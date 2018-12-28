@@ -12,8 +12,6 @@ With a linear gradient fill:
 
 ![](images/linear-gradient-2.png)
 
-See also: https://github.com/anaulin/circle-packing
-
 ## Development notes
 
 Create Python virtual env:
