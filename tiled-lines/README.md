@@ -4,8 +4,9 @@ An experiment in generative art.
 
 Example outputs:
 ![](output-1.png)
-![](output-2.png)
 ![](output-3.png)
+![](output-1-color.png)
+![](output-100-dark-bg.png)
 
 
 ## Development notes

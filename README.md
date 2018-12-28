@@ -42,4 +42,8 @@ Example output:
 
 ![](tiled-lines/output-3.png)
 
+![](tiled-lines/output-100-dark-bg.png)
+
+![](tiled-lines/output-1-color.png)
+
 More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tree/master/tiled-lines/) and its [README](tiled-lines/README.md).
