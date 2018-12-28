@@ -13,32 +13,23 @@ Example outputs:
 
 ![](circle-packing/images/circle-pack-palette1-1.jpg)
 
-With concentric circles:
-
-![](circle-packing/images/circle-pack-concentric-2.jpg)
-
-With more variation in the colors of the circles, and thicker circles:
-
 ![](circle-packing/images/circle-pack-concentric-random-colors-6.jpg)
 
 More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle-packing) and its [README](circle-packing/README.md).
 
 ## Square packing
 
-Example outputs:
+Example output:
 
 ![](square-packing/images/linear-gradient-2.png)
-
-![](square-packing/images/output.png)
 
 More in the [square-packing directory](https://github.com/anaulin/generative-art/tree/master/square-packing/) and its [README](square-packing/README.md)
 
 
 ## Auto-Mondrian
 
-Example outputs:
+Example output:
 
 ![](auto-mondrian/output-1.png)
-![](auto-mondrian/output-2.png)
 
 More in the [auto-mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto-mondrian/) and its [README](auto-mondrian/README.md).
