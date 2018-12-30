@@ -1,6 +1,6 @@
-# tiled-lines
+# Tiled lines
 
-An experiment in generative art.
+10 PRINT variants.
 
 Example outputs:
 ![](output-1.png)

@@ -53,6 +53,8 @@ More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tr
 
 Example output:
 
-![](fingers/output.png)
+![](fingers/output-50-10-2.png)
+![](fingers/output-6-5-6.png)
+![](fingers/output-50-50-3.png)
 
 More in the [fingers directory](https://github.com/anaulin/generative-art/tree/master/fingers/) and its [README](fingers/README.md).
