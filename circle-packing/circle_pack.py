@@ -51,6 +51,27 @@ PALETTE_6 = {
     'colors': PALETTE_1['colors'] + PALETTE_5['colors']
 }
 
+# DTG recommended colors
+RASPBERRY_RED = '#E60A96'  # (230, 10, 150)
+TRUE_RED = '#D21446'  # (210, 20, 70)
+PASTEL_PINK =  '#FFAFBE'  # (255, 175, 190)
+LIGHT_BLUE = '#0AA5E1'  # (10, 165, 225)
+VIOLET_PURPLE = '#9B4BA0'  # (155, 75, 160)
+BRIGHT_GREEN = '#19FF46'  # (25, 255, 70)
+BRIGHT_YELLOW = '#FFF000'  # (255, 240, 0)
+BRIGHT_ORANGE = '#F58228'  # (245, 130, 40)
+TRUE_BLACK = '#050000'  # (CMYK 55, 55, 55, 100)
+
+DTG_PALETTE_REDS = {
+    'background': TRUE_BLACK,
+    'colors': [ TRUE_RED, '#FFAC81', '#5C0029', '#912F56', PASTEL_PINK]
+}
+
+DTG_PALETTE_BLUES = {
+    'background': TRUE_BLACK,
+    'colors': [ LIGHT_BLUE , '#55DDE0', '#587291', '#083D77', '#0B3954']
+}
+
 # Final image dimensions
 IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
@@ -161,7 +182,7 @@ def main(palette=PALETTE_1, filename="output.png"):
     ctx = cairo.Context(ims)
 
     # Make background solid color
-    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_source_rgb(*hex_to_tuple(palette['background']))
     ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
     ctx.fill()
 
@@ -183,7 +204,7 @@ def main(palette=PALETTE_1, filename="output.png"):
 if __name__ == "__main__":
     #    palettes = [PALETTE_1, PALETTE_2, PALETTE_3,
     #                PALETTE_4, PALETTE_5, PALETTE_6]
-    palettes = [PALETTE_2]
+    palettes = [ DTG_PALETTE_BLUES ]
     counter = 1
     for p in palettes:
         main(palette=p, filename="output-{}.png".format(counter))
