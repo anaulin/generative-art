@@ -1,2 +1,4 @@
-Pillow>=2.0.0
+pycairo
+
 pylint
+autopep8

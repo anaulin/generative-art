@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw
+import cairo
 import math
 import random
 
@@ -137,24 +137,33 @@ def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
     return c
 
 
-def concentric(draw, circle, colors, background):
+def hex_to_tuple(hex):
+    hex = hex.lstrip('#')
+    return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
+
+
+def concentric(ctx, circle, colors, background):
     (center_x, center_y) = circle.center()
     # First color is outside color -- not background
     next_color = random.choice(colors)
     for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * 1.5)):
-        top_left_x = center_x - radius
-        top_left_y = center_y - radius
-        draw.ellipse([top_left_x, top_left_y, top_left_x + 2 *
-                      radius, top_left_y + 2 * radius], fill=next_color)
+        ctx.arc(center_x, center_y, radius, 0, 2 * math.pi)
+        ctx.set_source_rgb(*hex_to_tuple(next_color))
+        ctx.fill()
         if next_color == background:
             next_color = random.choice(colors)
         else:
             next_color = background
 
 
-def main(palette=PALETTE_1, filename=None):
-    img = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT),
-                    color=palette['background'])
+def main(palette=PALETTE_1, filename="output.png"):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+    ctx = cairo.Context(ims)
+
+    # Make background solid color
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.fill()
 
     circles = []
     for _ in range(TOTAL_CIRCLE_ATTEMPTS):
@@ -165,22 +174,17 @@ def main(palette=PALETTE_1, filename=None):
         else:
             print(".")
 
-    draw = ImageDraw.Draw(img)
     for c in circles:
-        concentric(draw, c, palette['colors'], palette['background'])
-        # draw.ellipse([c.x, c.y, c.x + 2 * c.r, c.y + 2 * c.r],
-        #             fill=random.choice(palette['colors']))
+        concentric(ctx, c, palette['colors'], palette['background'])
 
-    img.show()
-    if filename:
-        img.save(filename, 'jpeg')
+    ims.write_to_png(filename)
 
 
 if __name__ == "__main__":
-    palettes = [PALETTE_1, PALETTE_2, PALETTE_3,
-                PALETTE_4, PALETTE_5, PALETTE_6]
-    #palettes = [PALETTE_6]
+    #    palettes = [PALETTE_1, PALETTE_2, PALETTE_3,
+    #                PALETTE_4, PALETTE_5, PALETTE_6]
+    palettes = [PALETTE_2]
     counter = 1
     for p in palettes:
-        main(palette=p)
+        main(palette=p, filename="output-{}.png".format(counter))
         counter += 1
