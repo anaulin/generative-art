@@ -54,7 +54,7 @@ PALETTE_6 = {
 # DTG recommended colors
 RASPBERRY_RED = '#E60A96'  # (230, 10, 150)
 TRUE_RED = '#D21446'  # (210, 20, 70)
-PASTEL_PINK =  '#FFAFBE'  # (255, 175, 190)
+PASTEL_PINK = '#FFAFBE'  # (255, 175, 190)
 LIGHT_BLUE = '#0AA5E1'  # (10, 165, 225)
 VIOLET_PURPLE = '#9B4BA0'  # (155, 75, 160)
 BRIGHT_GREEN = '#19FF46'  # (25, 255, 70)
@@ -64,17 +64,21 @@ TRUE_BLACK = '#050000'  # (CMYK 55, 55, 55, 100)
 
 DTG_PALETTE_REDS = {
     'background': TRUE_BLACK,
-    'colors': [ TRUE_RED, '#FFAC81', '#5C0029', '#912F56', PASTEL_PINK]
+    'colors': [TRUE_RED, '#FFAC81', '#5C0029', '#912F56', PASTEL_PINK]
 }
 
 DTG_PALETTE_BLUES = {
     'background': TRUE_BLACK,
-    'colors': [ LIGHT_BLUE , '#55DDE0', '#587291', '#083D77', '#0B3954']
+    'colors': [LIGHT_BLUE, '#55DDE0', '#587291', '#083D77', '#0B3954']
 }
 
 # Final image dimensions
-IMG_HEIGHT = 2160
-IMG_WIDTH = 3840
+# Threadless wall art recommended: 12000 x 8400px JPG
+# Blanket recommended: 12500 x 9375px JPG
+#IMG_HEIGHT = 2160
+#IMG_WIDTH = 3840
+IMG_HEIGHT = 6300  # 4200
+IMG_WIDTH = 7200  # 4800
 
 # Circle paramaters
 MIN_RADIUS = int(IMG_HEIGHT / 150)
@@ -163,28 +167,25 @@ def hex_to_tuple(hex):
     return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
 
 
-def concentric(ctx, circle, colors, background):
+def concentric(ctx, circle, colors):
     (center_x, center_y) = circle.center()
-    # First color is outside color -- not background
-    next_color = random.choice(colors)
-    for radius in range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * 1.5)):
-        ctx.arc(center_x, center_y, radius, 0, 2 * math.pi)
-        ctx.set_source_rgb(*hex_to_tuple(next_color))
-        ctx.fill()
-        if next_color == background:
-            next_color = random.choice(colors)
+    radii = range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * 1.5))
+    for idx, radius in enumerate(radii):
+        if idx % 2 == 0:
+            ctx.arc(center_x, center_y, radius, 0, 2 * math.pi)
+            ctx.set_source_rgb(*hex_to_tuple(random.choice(colors)))
+            ctx.fill()
         else:
-            next_color = background
+            ctx.set_operator(cairo.OPERATOR_SOURCE)
+            ctx.set_source(cairo.SolidPattern(0.0, 0.0, 0.0, 0.0))
+            ctx.arc(center_x, center_y, radius, 0, 2 * math.pi)
+            ctx.fill()
 
 
 def main(palette=PALETTE_1, filename="output.png"):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+    ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
-
-    # Make background solid color
-    ctx.set_source_rgb(*hex_to_tuple(palette['background']))
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
-    ctx.fill()
 
     circles = []
     for _ in range(TOTAL_CIRCLE_ATTEMPTS):
@@ -196,16 +197,12 @@ def main(palette=PALETTE_1, filename="output.png"):
             print(".")
 
     for c in circles:
-        concentric(ctx, c, palette['colors'], palette['background'])
+        concentric(ctx, c, palette['colors'])
 
     ims.write_to_png(filename)
 
 
 if __name__ == "__main__":
-    #    palettes = [PALETTE_1, PALETTE_2, PALETTE_3,
-    #                PALETTE_4, PALETTE_5, PALETTE_6]
-    palettes = [ DTG_PALETTE_BLUES ]
-    counter = 1
-    for p in palettes:
-        main(palette=p, filename="output-{}.png".format(counter))
-        counter += 1
+    palettes = [DTG_PALETTE_REDS, DTG_PALETTE_BLUES]
+    for idx, p in enumerate(palettes):
+        main(palette=p, filename="output-{}.png".format(idx))
