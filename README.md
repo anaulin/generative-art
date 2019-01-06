@@ -1,5 +1,8 @@
 # Generative art experiments
 
+Store where you can buy prints, t-shirts and other products with some of the art from this repo:
+https://robotmolecule.threadless.com/
+
 Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
 
 - [Generative art experiments](#generative-art-experiments)
