@@ -1,6 +1,6 @@
 # Generative art experiments
 
-Store where you can buy prints, t-shirts and other products with some of the art from this repo:
+Buy prints, t-shirts and other products with some of the art from this repo:
 https://robotmolecule.threadless.com/
 
 Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
@@ -11,6 +11,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Auto-Mondrian](#auto-mondrian)
   - [Tiled lines](#tiled-lines)
   - [Fingers](#fingers)
+  - [Nested squares](#nested-squares)
 
 ## Circle packing
 
@@ -61,3 +62,12 @@ Example output:
 ![](fingers/output-50-50-3.png)
 
 More in the [fingers directory](https://github.com/anaulin/generative-art/tree/master/fingers/) and its [README](fingers/README.md).
+
+
+## Nested squares
+
+Example output:
+
+![](nested-squares/output-all-palettes.png)
+
+More in the [nested-squares directory](https://github.com/anaulin/generative-art/tree/master/nested-squares/) and its [README](nested-squares/README.md).
