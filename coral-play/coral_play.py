@@ -1,3 +1,6 @@
+from shapely.geometry import Point, LineString
+from shapely.ops import unary_union
+
 import cairo
 import math
 import random
@@ -17,21 +20,44 @@ DARK_TEAL = '#004c4c'
 
 SPACING = 1
 
+MAX_ATTEMPTS = 20
+
+
+def make_limb(width, height, ball_radius):
+    end_x = random.randint(-width // 2 + ball_radius,
+                           width // 2 - ball_radius)
+    end_y = random.randint(-height // 2 + ball_radius,
+                           height // 2 - ball_radius)
+    return (end_x, end_y)
+
+
 def polyp(ctx, x, y, width, height, color):
     min_dimension = min(width, height)
     center_x = x + int(width/2)
     center_y = y + int(width/2)
     radius = random.randint(int(min_dimension / 10), int(min_dimension / 6))
 
-    for _ in range(12):
-        line_width = radius // 5
-        ball_radius = int(line_width * 1.5)
+    line_width = radius // 5
+    ball_radius = int(line_width * 1.5)
+    center = Point(0, 0).buffer(radius)
+    existing_shapes = center.buffer(-0.1)
+    for _ in range(20):
+        for _ in range(MAX_ATTEMPTS):
+            (end_x, end_y) = make_limb(width, height, ball_radius)
+            ball = Point(end_x, end_y).buffer(ball_radius)
+            line = LineString([(0, 0), (end_x, end_y)]).buffer(line_width).difference(center)
+            limb = line.union(ball)
+            if not existing_shapes.intersects(limb):
+                break
+        else:
+            continue
 
+        existing_shapes = existing_shapes.union(limb)
+
+        # Draw line
         ctx.save()
         ctx.translate(center_x, center_y)
         ctx.move_to(0, 0)
-        end_x = random.randint(-width // 2 + ball_radius, width // 2 - ball_radius)
-        end_y = random.randint(-height // 2 + ball_radius, height // 2 - ball_radius)
         ctx.line_to(end_x, end_y)
         ctx.set_line_width(line_width)
         ctx.set_line_cap(cairo.LineCap.ROUND)
@@ -39,8 +65,8 @@ def polyp(ctx, x, y, width, height, color):
         add_gradient_stops(color, g)
         ctx.set_source(g)
         ctx.stroke()
-        # Ball at the end
 
+        # Draw ball at the end
         g = cairo.RadialGradient(end_x, end_y, 0, end_x, end_y, ball_radius)
         add_gradient_stops(color, g)
         ctx.set_source(g)
@@ -80,8 +106,8 @@ def main(filename="output.png"):
     ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
     ctx.fill()
 
-    rows = 4
-    columns = 4
+    rows = 6
+    columns = 6
     cell_width = int(IMG_WIDTH / columns)
     cell_height = int(IMG_HEIGHT / rows)
     for y in range(0, IMG_HEIGHT, cell_height):
