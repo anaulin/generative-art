@@ -13,6 +13,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Fingers](#fingers)
   - [Nested squares](#nested-squares)
   - [Coral play](#coral-play)
+  - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
 
 ## Circle packing
 
@@ -81,3 +82,13 @@ Example output:
 ![](coral-play/output-4.png)
 
 More in the [coral-play directory](https://github.com/anaulin/generative-art/tree/master/coral-play/) and its [README](coral-play/README.md).
+
+
+## Glitch-like lines in square cells
+
+Example output:
+
+![](lines-in-squares/output-2.png)
+
+More in the [lines-in-squares directory](https://github.com/anaulin/generative-art/tree/master/lines-in-squares/) and its [README](lines-in-squares/README.md).
+
