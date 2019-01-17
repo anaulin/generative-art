@@ -12,6 +12,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Tiled lines](#tiled-lines)
   - [Fingers](#fingers)
   - [Nested squares](#nested-squares)
+  - [Coral play](#coral-play)
 
 ## Circle packing
 
@@ -71,3 +72,12 @@ Example output:
 ![](nested-squares/output-all-palettes.png)
 
 More in the [nested-squares directory](https://github.com/anaulin/generative-art/tree/master/nested-squares/) and its [README](nested-squares/README.md).
+
+
+## Coral play
+
+Example output:
+
+![](coral-play/output-4.png)
+
+More in the [coral-play directory](https://github.com/anaulin/generative-art/tree/master/coral-play/) and its [README](coral-play/README.md).

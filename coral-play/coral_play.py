@@ -11,12 +11,16 @@ sys.path.append(os.path.abspath('..'))
 from lib import palettes
 
 # Final image dimensions
-IMG_HEIGHT = 1200
-IMG_WIDTH = IMG_HEIGHT
+IMG_HEIGHT = 2160
+IMG_WIDTH = 3840
 
 
 PANTONE_LIVING_CORAL_TCX = '#FF6F61'
 DARK_TEAL = '#004c4c'
+CORAL_PALETTE = {
+    'background': DARK_TEAL,
+    'colors': [PANTONE_LIVING_CORAL_TCX]
+}
 
 SPACING = 1
 
@@ -33,8 +37,8 @@ def make_limb(width, height, ball_radius):
 
 def polyp(ctx, x, y, width, height, color):
     min_dimension = min(width, height)
-    center_x = x + int(width/2)
-    center_y = y + int(width/2)
+    center_x = x + width // 2
+    center_y = y + height // 2
     radius = random.randint(int(min_dimension / 10), int(min_dimension / 6))
 
     line_width = radius // 5
@@ -96,26 +100,28 @@ def add_gradient_stops(color, gradient):
     gradient.add_color_stop_rgb(1, *color_variant(color))
 
 
-def main(filename="output.png"):
+def main(filename="output.png", palette=CORAL_PALETTE, rows=6, columns=6):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
     # Make background solid color
-    ctx.set_source_rgb(*palettes.hex_to_tuple(DARK_TEAL))
+    ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
     ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
     ctx.fill()
 
-    rows = 6
-    columns = 6
-    cell_width = int(IMG_WIDTH / columns)
-    cell_height = int(IMG_HEIGHT / rows)
+    cell_width = IMG_WIDTH // columns
+    cell_height = IMG_HEIGHT // rows
     for y in range(0, IMG_HEIGHT, cell_height):
         for x in range(0, IMG_WIDTH, cell_width):
-            polyp(ctx, x, y, cell_width, cell_height, PANTONE_LIVING_CORAL_TCX)
+            polyp(ctx, x, y, cell_width, cell_height, random.choice(palette['colors']))
 
     ims.write_to_png(filename)
 
 
 if __name__ == "__main__":
-    main(filename="output.png")
+    combined_palette = {
+        'background': palettes.DTG_PALETTE_REDS['background'],
+        'colors': palettes.DTG_PALETTE_REDS['colors'] + palettes.DTG_PALETTE_BLUES['colors']
+    }
+    main(filename="output-4.png", rows=10, columns=15, palette=combined_palette)
