@@ -15,6 +15,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Coral play](#coral-play)
   - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
   - [Random lines](#random-lines)
+  - [Reeds](#reeds)
 
 ## Circle packing
 
@@ -102,3 +103,12 @@ Example output:
 ![](random-lines/output-4.png)
 
 More in the [random-lines directory](https://github.com/anaulin/generative-art/tree/master/random-lines) and its [README](random-lines/README.md).
+
+
+## Reeds
+
+Example output:
+
+![](reeds/output.png)
+
+More in the [reeds](https://github.com/anaulin/generative-art/tree/master/reeds) and its [README](reeds/README.md).
