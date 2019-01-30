@@ -17,6 +17,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Random lines](#random-lines)
   - [Reeds](#reeds)
   - [Diagonals](#diagonals)
+  - [Petal grid](#petal-grid)
 
 ## Circle packing
 
@@ -122,4 +123,12 @@ Example output:
 ![](thick-diagonals/output-0.png)
 ![](thick-diagonals/output-3.png)
 
-More in the [thick-diagonals](https://github.com/anaulin/generative-art/tree/master/thick-diagonals) and its [README](reeds/README.md).
+More in the [thick-diagonals](https://github.com/anaulin/generative-art/tree/master/thick-diagonals) and its [README](thick-diagonals/README.md).
+
+## Petal grid
+
+Example output:
+
+![](petal-grid/output-2.png)
+
+More in the [petal-grid](https://github.com/anaulin/generative-art/tree/master/petal-grid) and its [README](petal-grid/README.md).

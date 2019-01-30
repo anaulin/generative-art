@@ -22,12 +22,12 @@ def petal(ctx, x, y, width, height, color):
         ctx.curve_to(*tl, *tr, *br)
         ctx.move_to(*tl)
         ctx.curve_to(*tl, *bl, *br)
-        ctx.set_source_rgb(*palettes.hex_to_tuple(color))
     else:
         ctx.curve_to(*bl, *tl, *tr)
         ctx.move_to(*bl)
         ctx.curve_to(*bl, *br, *tr)
 
+    ctx.set_source_rgb(*palettes.hex_to_tuple(color))
     ctx.fill()
 
 def main(filename="output.png", palette=random.choice(palettes.PALETTES), columns=15, rows=10):
@@ -48,6 +48,6 @@ def main(filename="output.png", palette=random.choice(palettes.PALETTES), column
 
 
 if __name__ == "__main__":
-    for idx, params in enumerate([(15, 10), (30, 20), (10, 7)]):
+    for idx, params in enumerate([(10, 10), (20, 15), (7, 5), (4, 3)]):
         (c, r) = params
         main(filename="output-{}.png".format(idx), palette=random.choice(palettes.PALETTES), columns=c, rows=r)
