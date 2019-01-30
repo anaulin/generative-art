@@ -32,6 +32,7 @@ More details and examples in the [Circle Packing directory](https://github.com/a
 Example output:
 
 ![](square-packing/images/linear-gradient-2.png)
+![](square-packing/output-nested-1.png)
 
 More in the [square-packing directory](https://github.com/anaulin/generative-art/tree/master/square-packing/) and its [README](square-packing/README.md)
 
