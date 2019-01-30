@@ -1,6 +1,12 @@
 import cairo
 import random
 
+import sys
+import os
+sys.path.append(os.path.abspath('..'))
+from lib import palettes
+
+
 # Image size
 IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
@@ -9,6 +15,9 @@ RATIO = IMG_HEIGHT / IMG_WIDTH
 # Square size parameters
 MIN_SIZE_FRACTION = 1/1000
 MAX_SIZE_FRACTION = 1/3
+
+MIN_SIZE = 10
+MAX_SIZE = int(1/3 * IMG_HEIGHT)
 
 PALETTE_1 = {
     'background': '#000000',
@@ -28,7 +37,7 @@ PALETTE_3 = {
 
 SQUARE_ATTEMPTS = 10000
 
-SPACING = 1/500
+SPACING = 3
 
 
 def random_color(palette):
@@ -47,11 +56,11 @@ def hex_to_tuple(hex):
 def intersects(squares, x, y, size):
     for s in squares:
         (sx, sy, ssize) = s
-        sx = sx - SPACING * RATIO
+        sx = sx - SPACING
         sy = sy - SPACING
         ssize = ssize + SPACING * 2
         # Check for overlap in x and y
-        overlap_x = (sx <= x + size * RATIO) and (sx + ssize * RATIO >= x)
+        overlap_x = (sx <= x + size) and (sx + ssize >= x)
         overlap_y = (sy <= y + size) and (sy + ssize >= y)
         if overlap_x and overlap_y:
             return True
@@ -59,24 +68,41 @@ def intersects(squares, x, y, size):
 
 
 def is_inside_canvas(x, y, size):
-    return (x + (SPACING + size) * RATIO < 1.0 and y + SPACING + size < 1.0)
+    return (x + (SPACING + size) < IMG_WIDTH and y + SPACING + size < IMG_HEIGHT)
 
 
 def make_random_square(squares):
-    x = random.random()
-    y = random.random()
-    size = MIN_SIZE_FRACTION
+    x = random.randint(0, IMG_WIDTH)
+    y = random.randint(0, IMG_HEIGHT)
+    size = MIN_SIZE_FRACTION * IMG_HEIGHT
     if intersects(squares, x, y, size) or not is_inside_canvas(x, y, size):
         return None
 
-    while (not intersects(squares, x, y, size) and size <= MAX_SIZE_FRACTION
+    while (not intersects(squares, x, y, size) and size <= MAX_SIZE
            and is_inside_canvas(x, y, size)):
-        size += 1/1000
+        size += MIN_SIZE
 
     # Remove the last increment that caused us to intersect.
-    size -= 1/1000
+    size -= MIN_SIZE
 
     return (x, y, size)
+
+def nested_squares(ctx, x, y, width, palette, step=0.3):
+    center_x = x + int(width/2)
+    center_y = y + int(width/2)
+    previous_color = None
+    current_width = width
+    while current_width > (step / 2):
+        current_x = center_x - int(current_width/2)
+        current_y = center_y - int(current_width/2)
+        color = palettes.random_color(palette)
+        while color == previous_color:
+            color = palettes.random_color(palette)
+        previous_color = color
+        ctx.set_source_rgb(*color)
+        ctx.rectangle(current_x, current_y, current_width, current_width)
+        ctx.fill()
+        current_width -= step
 
 
 def get_random_gradient(square, palette):
@@ -88,15 +114,13 @@ def get_random_gradient(square, palette):
     return g
 
 
-def main(palette=PALETTE_1):
-    #ims = cairo.SVGSurface("output.svg", IMG_WIDTH, IMG_HEIGHT)
+def main(filename="output.png", palette=PALETTE_1, nested=True):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
     ctx = cairo.Context(ims)
-    ctx.scale(IMG_WIDTH, IMG_HEIGHT)
 
     # Set background color
     ctx.set_source_rgb(*hex_to_tuple(palette['background']))
-    ctx.rectangle(0, 0, 1, 1)
+    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
     ctx.fill()
 
     squares = []
@@ -110,13 +134,16 @@ def main(palette=PALETTE_1):
 
     for s in squares:
         (x, y, size) = s
-        ctx.rectangle(x, y, size * RATIO, size)
-        #(r, g, b) = random_color()
-        ctx.set_source(get_random_gradient(s, palette))
-        ctx.fill()
+        if nested:
+            nested_squares(ctx, x, y, size, palette, step=size/4)
+        else:
+            ctx.rectangle(x, y, size * RATIO, size)
+            ctx.set_source(get_random_gradient(s, palette))
+            ctx.fill()
 
-    ims.write_to_png("output.png")
+    ims.write_to_png(filename)
 
 
 if __name__ == "__main__":
-    main(PALETTE_3)
+    for idx in range(0, 3):
+        main(palette=random.choice(palettes.PALETTES), filename="output-nested-{}.png".format(idx))
