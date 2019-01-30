@@ -18,6 +18,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Reeds](#reeds)
   - [Diagonals](#diagonals)
   - [Petal grid](#petal-grid)
+  - [Abstract retro grid](#abstract-retro-grid)
 
 ## Circle packing
 
@@ -132,3 +133,11 @@ Example output:
 ![](petal-grid/output-2.png)
 
 More in the [petal-grid](https://github.com/anaulin/generative-art/tree/master/petal-grid) and its [README](petal-grid/README.md).
+
+## Abstract retro grid
+
+Example output:
+
+![](abstract-retro-grid/output-2.png)
+
+More in the [abstract-grid](https://github.com/anaulin/generative-art/tree/master/abstract-retro-grid) and its [README](abstract-retro/README.md).
