@@ -16,6 +16,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
   - [Random lines](#random-lines)
   - [Reeds](#reeds)
+  - [Diagonals](#diagonals)
 
 ## Circle packing
 
@@ -113,3 +114,12 @@ Example output:
 ![](reeds/output.png)
 
 More in the [reeds](https://github.com/anaulin/generative-art/tree/master/reeds) and its [README](reeds/README.md).
+
+## Diagonals
+
+Example output:
+
+![](thick-diagonals/output-0.png)
+![](thick-diagonals/output-3.png)
+
+More in the [thick-diagonals](https://github.com/anaulin/generative-art/tree/master/thick-diagonals) and its [README](reeds/README.md).

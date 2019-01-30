@@ -2,8 +2,6 @@ import cairo
 import math
 import random
 
-import palettes
-
 # Final image dimensions
 IMG_HEIGHT = 1000
 IMG_WIDTH = 1500
@@ -38,6 +36,6 @@ def draw_gradient(filename, start_col, end_col, steps):
     ims.write_to_png(filename)
 
 
-if __name__ == "__main__":
-    c = palettes.hex_to_tuple(palettes.DARK_BLUE)
-    draw_gradient("output.png", c, c, 5)
+# if __name__ == "__main__":
+#     c = palettes.hex_to_tuple(palettes.DARK_BLUE)
+#     draw_gradient("output.png", c, c, 5)
