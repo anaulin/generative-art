@@ -9,8 +9,9 @@ from lib import palettes
 # Final image dimensions
 # Threadless wall art recommended: 12000 x 8400px JPG
 # Blanket recommended: 12500 x 9375px JPG
-IMG_HEIGHT = 6000
-IMG_WIDTH = int(IMG_HEIGHT * 1.5)
+# IMG_HEIGHT = 6000
+# IMG_WIDTH = int(IMG_HEIGHT * 1.5)
+IMG_HEIGHT = IMG_WIDTH = 1200
 
 
 def nested_squares(ctx, x, y, width, palette, step=100):
@@ -35,10 +36,10 @@ def main(palettes=palettes, filename="output-1-palette.png"):
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
-    rows = 8
-    columns = rows * 1.5
+    rows = 30
+    columns = rows #* 1.5
     cell_size = int(IMG_WIDTH / columns)
-    num_squares_per_cell = 4
+    num_squares_per_cell = 5
     step_size = int(cell_size / (2 * num_squares_per_cell))
     for y in range(0, IMG_HEIGHT, cell_size):
         for x in range(0, IMG_WIDTH, cell_size):
@@ -50,4 +51,4 @@ def main(palettes=palettes, filename="output-1-palette.png"):
 if __name__ == "__main__":
     # for idx, p in enumerate(palettes.PALETTES):
     #     main(palette=p, filename="output-{}.png".format(idx))
-    main(palettes=palettes.PALETTES, filename="output-all-palettes.png")
+    main(palettes=palettes.PALETTES, filename="output-all-palettes-submission.png")
