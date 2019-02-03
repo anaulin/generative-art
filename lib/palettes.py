@@ -62,6 +62,19 @@ PALETTE_6 = {
 }
 PALETTES.append(PALETTE_6)
 
+PALETTE_7 = {
+    'background': '#91C4F2',
+    'colors': ['#8CA0D7', '#9D79BC', '#A14DA0', '#7E1F86', '#D81E5B', '#59C9A5']
+}
+PALETTES.append(PALETTE_7)
+
+PALETTE_8 = {
+    'background': '#000000',
+    'colors': ['#785589', '#977390', '#E9AFA3', '#AC7B7D'],
+}
+PALETTES.append(PALETTE_8)
+
+
 # DTG recommended colors
 RASPBERRY_RED = '#E60A96'  # (230, 10, 150)
 TRUE_RED = '#D21446'  # (210, 20, 70)
