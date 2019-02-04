@@ -13,8 +13,11 @@ IMG_HEIGHT = 2000
 IMG_WIDTH = 2000
 
 
-def pyramid(ctx, x, y, width, height, color):
-    center = (x + width // 2, y + height // 2)
+def pyramid(ctx, x, y, width, height, color, random_center=True):
+    if random_center:
+        center = ( random.randint(x + 3, x + width - 3), random.randint(y + 3, y + height - 3))
+    else:
+        center = (x + width // 2, y + height // 2)
     tl = (x, y)
     tr = (x + width, y)
     bl = (x, y + height)
@@ -55,4 +58,4 @@ def main(filename="output.png", palette=random.choice(palettes.PALETTES), column
 if __name__ == "__main__":
     #for idx, params in enumerate([(10, 9), (7, 5), (17, 14)]):
     #    (c, r) = params
-        main(filename="output-{}.png".format(1), palette=palettes.PALETTE_8, columns=10, rows=10)
+        main(filename="output-random-{}.png".format(1), palette=palettes.PALETTE_8, columns=10, rows=10)
