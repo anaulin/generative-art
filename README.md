@@ -22,6 +22,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Pyramids](#pyramids)
   - [Squiggly lines](#squiggly-lines)
   - [Squiggly nodes](#squiggly-nodes)
+  - [Just circles](#just-circles)
 
 ## Circle packing
 
@@ -170,3 +171,12 @@ Example output:
 ![](squiggly-nodes/output-0.png)
 
 More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/master/squiggly-nodes) directory and its [README](squiggly-nodes/README.md).
+
+
+## Just circles
+
+Example output:
+
+![](just-circles/output-0.png)
+
+More in the [just-circles](https://github.com/anaulin/generative-art/tree/master/just-circles) directory and its [README](just-circles/README.md).
