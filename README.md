@@ -19,6 +19,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Diagonals](#diagonals)
   - [Petal grid](#petal-grid)
   - [Abstract retro grid](#abstract-retro-grid)
+  - [Pyramids](#pyramids)
 
 ## Circle packing
 
@@ -141,3 +142,12 @@ Example output:
 ![](abstract-retro-grid/output-2.png)
 
 More in the [abstract-grid](https://github.com/anaulin/generative-art/tree/master/abstract-retro-grid) and its [README](abstract-retro/README.md).
+
+## Pyramids
+
+Example output:
+
+![](pyramids/output-random-1.png)
+
+More in the [pyramids](https://github.com/anaulin/generative-art/tree/master/pyramids) directory and its [README](pyramids/README.md).
+
