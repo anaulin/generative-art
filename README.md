@@ -21,6 +21,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Abstract retro grid](#abstract-retro-grid)
   - [Pyramids](#pyramids)
   - [Squiggly lines](#squiggly-lines)
+  - [Squiggly nodes](#squiggly-nodes)
 
 ## Circle packing
 
@@ -160,3 +161,12 @@ Example output:
 ![](squiggly-lines/output-1.png)
 
 More in the [squiggly-lines](https://github.com/anaulin/generative-art/tree/master/squiggly-lines) directory and its [README](squiggly-lines/README.md).
+
+## Squiggly nodes
+
+Example output:
+
+![](squiggly-nodes/output-3.png)
+![](squiggly-nodes/output-0.png)
+
+More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/master/squiggly-nodes) directory and its [README](squiggly-nodes/README.md).
