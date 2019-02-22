@@ -74,6 +74,31 @@ PALETTE_8 = {
 }
 PALETTES.append(PALETTE_8)
 
+PALETTE_9 = {
+    'background': '#000000',
+    'colors': [ '#1E352F', '#425244', '#A8A4A7', '#A3A7A4', '#D6AF1C' ]
+}
+PALETTES.append(PALETTE_9)
+
+PALETTE_10 = {
+    'background': '#B6C1C8',
+    'colors': [ '#5B7FA2', '#353953', '#86678D', '#B397A4' ]
+
+}
+PALETTES.append(PALETTE_10)
+
+PALETTE_11 = {
+    'background': '#000000',
+    'colors': [ '#382C33', '#69483A', '#877751', '#8E9884', '#C1B89C' ]
+}
+PALETTES.append(PALETTE_11)
+
+PALETTE_12 = {
+    'background': '#080F1A',
+    'colors': [ '#071828', '#113E4D', '#A4B49D', '#EAD868', '#1C8D92', '#BFD88F' ]
+}
+PALETTES.append(PALETTE_12)
+
 
 # DTG recommended colors
 RASPBERRY_RED = '#E60A96'  # (230, 10, 150)
@@ -99,6 +124,13 @@ DTG_PALETTE_BLUES = {
 }
 PALETTES.append(DTG_PALETTE_BLUES)
 DTG_PALETTES.append(DTG_PALETTE_BLUES)
+
+DTG_PALETTE_REDS_AND_BLUES = {
+    'background': TRUE_BLACK,
+    'colors': DTG_PALETTE_REDS['colors'] + DTG_PALETTE_BLUES['colors']
+}
+PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
+DTG_PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
 
 
 def hex_to_tuple(hex):

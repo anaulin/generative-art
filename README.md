@@ -25,6 +25,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Just circles](#just-circles)
   - [Curving lines](#curving-lines)
   - [Broken lines](#broken-lines)
+  - [Esses](#esses)
 
 ## Circle packing
 
@@ -200,5 +201,14 @@ Example output:
 ![](broken-lines/output-2.png)
 ![](broken-lines/output-3.png)
 
-More in the [broken-lines](https://github.com/anaulin/generative-art/tree/master/broken-lines) directory and its [README](brokenlines/README.md).
+More in the [broken-lines](https://github.com/anaulin/generative-art/tree/master/broken-lines) directory and its [README](broken-lines/README.md).
+
+## Esses
+
+Example output:
+
+![](esses/output-5.png)
+![](esses/output-0.png)
+
+More in the [esses](https://github.com/anaulin/generative-art/tree/master/esses) directory and its [README](esses/README.md).
 
