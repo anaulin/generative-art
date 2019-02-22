@@ -24,6 +24,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Squiggly nodes](#squiggly-nodes)
   - [Just circles](#just-circles)
   - [Curving lines](#curving-lines)
+  - [Broken lines](#broken-lines)
 
 ## Circle packing
 
@@ -190,3 +191,14 @@ Example output:
 ![](curving-lines/output-3.png)
 
 More in the [curving-lines](https://github.com/anaulin/generative-art/tree/master/curving-lines) directory and its [README](curving-lines/README.md).
+
+
+## Broken lines
+
+Example output:
+
+![](broken-lines/output-2.png)
+![](broken-lines/output-3.png)
+
+More in the [broken-lines](https://github.com/anaulin/generative-art/tree/master/broken-lines) directory and its [README](brokenlines/README.md).
+
