@@ -27,6 +27,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Broken lines](#broken-lines)
   - [Esses](#esses)
   - [Just shapes](#just-shapes)
+  - [Un deux trois](#un-deux-trois)
 
 ## Circle packing
 
@@ -220,4 +221,12 @@ Example output:
 ![](just-shapes/output-3.png)
 
 More in the [just-shapes](https://github.com/anaulin/generative-art/tree/master/just-shapes) directory and its [README](just-shapes/README.md).
+
+##  Un deux trois
+
+After Vera Molnar. Example output:
+
+![](un-deux-trois/output-2.png)
+
+More in the [un-deux-trois](https://github.com/anaulin/generative-art/tree/master/un-deux-trois) directory and its [README](un-deux-trois/README.md).
 
