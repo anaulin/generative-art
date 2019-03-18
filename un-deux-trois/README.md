@@ -8,3 +8,4 @@ Example outputs:
 ![](output-3.png)
 ![](output-4.png)
 ![](output-5.png)
+![](output-6.png)

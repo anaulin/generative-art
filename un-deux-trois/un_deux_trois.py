@@ -20,7 +20,7 @@ def lines(ctx, colors, x, y, width, height, num_steps, line_width):
     ctx.rotate(random.uniform(- math.pi / 2, math.pi / 2))
     ctx.translate(-width/2, -height/2)
 
-    step_size = min(width, height) // num_steps
+    step_size = max(width, height) // num_steps
     current_x = 0
     while current_x < width:
         ctx.move_to(current_x, 0)
@@ -52,6 +52,7 @@ def main(filename="output.png", palette=random.choice(palettes.PALETTES), num_co
                 current_num_steps = num_steps[1]
             else:
                 current_num_steps = num_steps[2]
+            #p = random.choice(palettes.PALETTES)
             lines(ctx, palette['colors'], c * column_size, r * row_size, column_size, row_size, current_num_steps, line_width)
 
     ims.write_to_png(filename)
@@ -64,3 +65,4 @@ if __name__ == "__main__":
     main(filename="output-3.png", palette=random.choice(palettes.PALETTES), num_columns=12, num_rows=9, num_steps=[1, 2, 3], line_width=3)
     main(filename="output-4.png", palette=random.choice(palettes.PALETTES), num_columns=21, num_rows=6, num_steps=[2, 4, 8], line_width=2)
     main(filename="output-5.png", palette=random.choice(palettes.PALETTES), num_columns=9, num_rows=3, num_steps=[2, 4, 8], line_width=5)
+    main(filename="output-6.png", palette=random.choice(palettes.PALETTES), num_columns=25, num_rows=15, num_steps=[1, 2, 3], line_width=10)
