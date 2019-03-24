@@ -23,12 +23,12 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
 
     # 1. Get a start point that doesn't overlap with anything we already have.
     (start_x, start_y) = getStartXY()
-    startPoint = Point(start_x, start_y).buffer(line_width // 2)
-    for _ in range(max_attempts * 1000):
+    startPoint = Point(start_x, start_y).buffer(line_width // 2, resolution=8)
+    for _ in range(max_attempts * 100):
         if not existing_shapes.intersects(startPoint):
             break
         (start_x, start_y) = getStartXY()
-        startPoint = Point(start_x, start_y).buffer(line_width // 2)
+        startPoint = Point(start_x, start_y).buffer(line_width // 2, resolution=8)
     # For the rare case that we did not find a working point.
     if existing_shapes.intersects(startPoint):
         print("Could not find valid start point!")
@@ -38,11 +38,14 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
     end_y = start_y
     bar = LineString([(start_x, start_y), (start_x, start_y)]
                      ).buffer(line_width)
+
     failed_attempts = 0
+    max_increment = 500
     while failed_attempts < max_attempts:
+        print("Max increment: {}".format(max_increment))
         new_end_x = end_x
         new_end_y = end_y
-        increment = random.randint(1, 10)
+        increment = random.randint(1, max_increment)
         if random.random() < 0.5:
             increment = -1 * increment
         if random.random() < 0.5:
@@ -57,6 +60,9 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
             bar = new_bar
         else:
             failed_attempts += 1
+            max_increment = int(max_increment * 3/4)
+            if max_increment < 1:
+                break
 
     # Draw line
     ctx.move_to(start_x, start_y)
@@ -100,5 +106,6 @@ def main(filename="output.png", img_width=IMG_WIDTH, img_height=IMG_HEIGHT, pale
 
 
 if __name__ == "__main__":
-    for idx, count in enumerate([20, 50 , 100, 40]):
-        main(filename="output-{}.png".format(idx), count=count, line_width=random.randint(80, 200), palette=random.choice(palettes.PALETTES))
+    # for idx, count in enumerate([20, 50, 100, 40]):
+    #     main(filename="output-{}.png".format(idx), count=count, line_width=random.randint(80, 200), palette=random.choice(palettes.PALETTES))
+    main(filename="output-{}.png".format(4), count=100, line_width=random.randint(40, 100), palette=random.choice(palettes.PALETTES))
