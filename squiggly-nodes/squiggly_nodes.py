@@ -60,5 +60,5 @@ def main(filename="output.png", palette=random.choice(palettes.PALETTES), lines=
 
 
 if __name__ == "__main__":
-    for idx, l in enumerate([5, 10, 20, 50]):
+    for idx, l in enumerate([5, 10, 15, 20, 40]):
         main(filename="output-{}.png".format(idx), palette=random.choice(palettes.PALETTES), lines=l)
