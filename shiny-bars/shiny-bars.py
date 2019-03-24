@@ -42,7 +42,6 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
     failed_attempts = 0
     max_increment = 500
     while failed_attempts < max_attempts:
-        print("Max increment: {}".format(max_increment))
         new_end_x = end_x
         new_end_y = end_y
         increment = random.randint(1, max_increment)
@@ -65,23 +64,28 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
                 break
 
     # Draw line
+    color_t = palettes.hex_to_tuple(color)
+    draw_line(ctx, start_x, start_y, end_x, end_y, color_t, line_width)
+
+    # Draw highlights
+    tints = colors.tints(color_t, 5)
+    ctx.save()
+    ctx.translate(line_width//4, line_width//4)
+    highlight_width = max(line_width // 5, 2)
+    draw_line(ctx, start_x, start_y, end_x, end_y, tints[-2], highlight_width)
+    ctx.translate(max(highlight_width//2, 1), 0)
+    draw_line(ctx, start_x, start_y, end_x, end_y, tints[-1], max(highlight_width// 4, 1))
+    ctx.restore()
+
+    return existing_shapes.union(bar)
+
+def draw_line(ctx, start_x, start_y, end_x, end_y, color, line_width):
     ctx.move_to(start_x, start_y)
     ctx.line_to(end_x, end_y)
     ctx.set_line_width(line_width)
     ctx.set_line_cap(cairo.LineCap.ROUND)
-    ctx.set_source_rgb(*palettes.hex_to_tuple(color))
-    ctx.stroke()
-
-    # Draw highlight
-    ctx.move_to(start_x, start_y)
-    ctx.line_to(end_x, end_y)
-    ctx.set_line_width(max(line_width // 5, 2))
-    ctx.set_line_cap(cairo.LineCap.ROUND)
-    color = colors.tints(palettes.hex_to_tuple(color), 5)[-2]
     ctx.set_source_rgb(*color)
     ctx.stroke()
-
-    return existing_shapes.union(bar)
 
 def within_canvas(x, y, width, height):
     return x > 0 and x < width and y > 0 and y < height
@@ -106,6 +110,5 @@ def main(filename="output.png", img_width=IMG_WIDTH, img_height=IMG_HEIGHT, pale
 
 
 if __name__ == "__main__":
-    # for idx, count in enumerate([20, 50, 100, 40]):
-    #     main(filename="output-{}.png".format(idx), count=count, line_width=random.randint(80, 200), palette=random.choice(palettes.PALETTES))
-    main(filename="output-{}.png".format(4), count=100, line_width=random.randint(40, 100), palette=random.choice(palettes.PALETTES))
+    for idx, count in enumerate([20, 50, 100, 40]):
+        main(filename="output-{}.png".format(idx), count=count, line_width=random.randint(40, 160), palette=random.choice(palettes.PALETTES))
