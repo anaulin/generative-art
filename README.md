@@ -28,6 +28,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Esses](#esses)
   - [Just shapes](#just-shapes)
   - [Un deux trois](#un-deux-trois)
+  - [Shiny bars](#shiny-bars)
 
 ## Circle packing
 
@@ -229,4 +230,12 @@ After Vera Molnar. Example output:
 ![](un-deux-trois/output-2.png)
 
 More in the [un-deux-trois](https://github.com/anaulin/generative-art/tree/master/un-deux-trois) directory and its [README](un-deux-trois/README.md).
+
+##  Shiny bars
+
+Example output:
+
+![](shiny-bars/output-0.png)
+
+More in the [shiny-bars](https://github.com/anaulin/generative-art/tree/master/shiny-bars) directory and its [README](shiny-bars/README.md).
 
