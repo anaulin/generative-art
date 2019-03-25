@@ -1,26 +1,15 @@
 import cairo
+import os
+import sys
 import random
+
+sys.path.append(os.path.abspath('..'))
+from lib import palettes
 
 IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
 
 LINE_WIDTH = 5
-
-PALETTE = ['#4B5043', '#9BC4BC', '#D3FFE9', '#8DDBE0']
-
-PALETTE_2 = ['#EEC525', '#C05F73', '#9D2045', '#511253',
-             '#3A1B3D', '#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85', '#6E44FF']
-
-PALETTE_3 = ['#201A4C', '#31274C', '#263E3F', '#1A274C', '#16384C']
-
-PALETTE_4 = ['#0E1906', '#252D1A', '#593949', '#6B5364', '#756670']
-
-PALETTE_5 = ['#D3AC63', '#D89450', '#DB7741', '#5E2513']
-
-PALETTE_6 = ['#DB5ABA', '#C455A8', '#FF8CC6', '#DE369D', '#6F5E76']
-
-PALETTE_7 = ['#30C5FF', '#44AF69', '#5C946E', '#80C2AF', '#A0DDE6']
-
 
 def hex_to_tuple(hex):
     hex = hex.lstrip('#')
@@ -41,13 +30,13 @@ def draw_line(ctx, x, y, x2, y2, line_width, color1, color2):
     ctx.stroke()
 
 
-def main(filename="output.png", count=40, layers=80, palette=PALETTE_7):
+def main(filename="output.png", count=40, layers=80, palette=random.choice(palettes.PALETTES)):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
     ctx = cairo.Context(ims)
 
     # Make background solid color
-    ctx.set_source_rgb(0, 0, 0)
     ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
     ctx.fill()
 
     line_width = int(IMG_WIDTH / count)
@@ -63,7 +52,7 @@ def main(filename="output.png", count=40, layers=80, palette=PALETTE_7):
         for x in range(layer_offset, IMG_WIDTH + line_width, line_width):
             end = random.randint(l * layer_height,
                                  (l + 1) * layer_height) - int(layer_height / 2)
-            colors = random.choices(palette, k=2)
+            colors = random.choices(palette['colors'], k=2)
             color = tuple(((1 - c) * lighten_by + c)
                           for c in hex_to_tuple(colors[0]))
             color2 = tuple(((1 - c) * lighten_by + c)
@@ -74,16 +63,9 @@ def main(filename="output.png", count=40, layers=80, palette=PALETTE_7):
 
 
 if __name__ == "__main__":
-    params = []
-    params.append((5, 10, PALETTE_6))
-    params.append((50, 10, PALETTE_6))
-    params.append((50, 50, PALETTE_6 + PALETTE_7))
-    params.append((10, 20, PALETTE_7))
-    params.append((100, 30, PALETTE_7 + PALETTE))
-    params.append((6, 5, PALETTE_2))
-
-    count = 1
-    for (c, l, p) in params:
+    for idx in range(10):
+        l = random.randint(5, 100)
+        c = random.randint(5, 50)
+        p = random.choice(palettes.PALETTES)
         main(filename="output-{}-{}-{}.png".format(c,
-                                                   l, count), count=c, layers=l, palette=p)
-        count += 1
+                                                   l, idx), count=c, layers=l, palette=p)
