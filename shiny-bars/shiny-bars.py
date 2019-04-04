@@ -4,6 +4,7 @@ import random
 import sys
 
 import cairo
+from shapely.affinity import rotate
 from shapely.geometry import LineString, Point
 from shapely.ops import unary_union
 
@@ -15,10 +16,10 @@ IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
 
 
-def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_attempts=10):
+def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_attempts=100):
     def getStartXY():
-        x = random.randint(line_width // 2, img_width - line_width // 2)
-        y = random.randint(line_width // 2, img_height - line_width // 2)
+        x = random.randint(line_width, img_width - line_width)
+        y = random.randint(line_width, img_height - line_width)
         return (x, y)
 
     # 1. Get a start point that doesn't overlap with anything we already have.
@@ -39,6 +40,7 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
     bar = LineString([(start_x, start_y), (start_x, start_y)]
                      ).buffer(line_width)
 
+    # 2. Grow the bar as far as possible, randomly.
     failed_attempts = 0
     max_increment = 500
     while failed_attempts < max_attempts:
@@ -53,7 +55,7 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
             new_end_y += increment
         new_bar = LineString(
             [(start_x, start_y), (new_end_x, new_end_y)]).buffer(line_width)
-        if not existing_shapes.intersects(new_bar) and within_canvas(end_x, end_y, img_width - line_width, img_height - line_width):
+        if not existing_shapes.intersects(new_bar) and within_canvas(new_end_x, new_end_y, img_width, img_height, line_width):
             end_x = new_end_x
             end_y = new_end_y
             bar = new_bar
@@ -63,32 +65,48 @@ def bar(ctx, color, line_width, img_width, img_height, existing_shapes, max_atte
             if max_increment < 1:
                 break
 
-    # Draw line
+    if end_x == start_x and end_y == start_y:
+        print("Couldn't grow bar")
+        return existing_shapes
+
+    # 3. Draw the bar
     color_t = palettes.hex_to_tuple(color)
-    draw_line(ctx, start_x, start_y, end_x, end_y, color_t, line_width)
-
-    # Draw highlights
     tints = colors.tints(color_t, 5)
-    ctx.save()
-    ctx.translate(line_width//4, line_width//4)
-    highlight_width = max(line_width // 5, 2)
-    draw_line(ctx, start_x, start_y, end_x, end_y, tints[-2], highlight_width)
-    ctx.translate(max(highlight_width//2, 1), 0)
-    draw_line(ctx, start_x, start_y, end_x, end_y, tints[-1], max(highlight_width// 4, 1))
-    ctx.restore()
+    shades = colors.shades(color_t, 3)
 
-    return existing_shapes.union(bar)
-
-def draw_line(ctx, start_x, start_y, end_x, end_y, color, line_width):
     ctx.move_to(start_x, start_y)
     ctx.line_to(end_x, end_y)
     ctx.set_line_width(line_width)
     ctx.set_line_cap(cairo.LineCap.ROUND)
-    ctx.set_source_rgb(*color)
+
+    # Compute vector for highlight vector
+    dx = end_x - start_x
+    dy = end_y - start_y
+    length = math.sqrt(pow(end_x - start_x, 2) + pow(end_y - start_y, 2))
+    # Center point of the bar
+    center_x = start_x + (dx / 2)
+    center_y = start_y + (dy / 2)
+    # Start and end of highlight vector -- perpendicular to bar
+    grad_start_x = (center_x + (dy / length) * line_width / 2)
+    grad_start_y = (center_y + (-1) * (dx / length) * line_width / 2)
+    grad_end_x = (center_x + (-1) * (dy / length) * (line_width / 2))
+    grad_end_y = (center_y + (dx / length) * (line_width / 2))
+
+    gradient = cairo.LinearGradient(grad_start_x, grad_start_y, grad_end_x, grad_end_y)
+    gradient.add_color_stop_rgb(0, *shades[-2])
+    gradient.add_color_stop_rgb(0.7, *tints[-1])
+    gradient.add_color_stop_rgb(0.7, *tints[-1])
+    gradient.add_color_stop_rgb(0.75, 1, 1, 1)
+    gradient.add_color_stop_rgb(0.75, 1, 1, 1)
+    gradient.add_color_stop_rgb(0.8, *tints[-1])
+    gradient.add_color_stop_rgb(1, *shades[-1])
+    ctx.set_source(gradient)
     ctx.stroke()
 
-def within_canvas(x, y, width, height):
-    return x > 0 and x < width and y > 0 and y < height
+    return existing_shapes.union(bar)
+
+def within_canvas(x, y, width, height, line_width):
+    return x > line_width and x < width - line_width and y > line_width and y < height - line_width
 
 def main(filename="output.png", img_width=IMG_WIDTH, img_height=IMG_HEIGHT, palette=random.choice(palettes.PALETTES), count=50, line_width=80):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
@@ -110,5 +128,5 @@ def main(filename="output.png", img_width=IMG_WIDTH, img_height=IMG_HEIGHT, pale
 
 
 if __name__ == "__main__":
-    for idx, count in enumerate([20, 50, 100, 40]):
-        main(filename="output-{}.png".format(idx), count=count, line_width=random.randint(40, 160), palette=random.choice(palettes.PALETTES))
+    for idx, count in enumerate([20, 50, 100, 40, 80]):
+        main(filename="output-{}.png".format(7), count=count, line_width=random.randint(100, 200), palette=random.choice(palettes.PALETTES))
