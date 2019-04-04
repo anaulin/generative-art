@@ -31,6 +31,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Shiny bars](#shiny-bars)
   - [Shaded discs](#shaded-discs)
   - [Shiny spheres](#shiny-spheres)
+  - [Color field](#color-field)
 
 ## Circle packing
 
@@ -256,4 +257,12 @@ Example output:
 ![](shiny-spheres/output-2.png)
 
 More in the [shiny-spheres](https://github.com/anaulin/generative-art/tree/master/shiny-spheres) directory and its [README](shiny-spheres/README.md).
+
+##  Color field
+
+Example output:
+
+![](color-field/output-2.png)
+
+More in the [color-field](https://github.com/anaulin/generative-art/tree/master/color-field) directory and its [README](color-field/README.md).
 
