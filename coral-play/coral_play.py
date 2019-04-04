@@ -120,8 +120,5 @@ def main(filename="output.png", palette=CORAL_PALETTE, rows=6, columns=6):
 
 
 if __name__ == "__main__":
-    combined_palette = {
-        'background': palettes.DTG_PALETTE_REDS['background'],
-        'colors': palettes.DTG_PALETTE_REDS['colors'] + palettes.DTG_PALETTE_BLUES['colors']
-    }
-    main(filename="output-4.png", rows=10, columns=15, palette=combined_palette)
+    for idx, count in enumerate([5, 6, 7, 8, 10]):
+        main(filename="output-{}.png".format(idx), rows=count, columns=random.randint(count, int(count * 1.5)), palette=random.choice(palettes.PALETTES))
