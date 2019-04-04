@@ -29,6 +29,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Just shapes](#just-shapes)
   - [Un deux trois](#un-deux-trois)
   - [Shiny bars](#shiny-bars)
+  - [Shaded discs](#shaded-discs)
 
 ## Circle packing
 
@@ -238,4 +239,12 @@ Example output:
 ![](shiny-bars/output-0.png)
 
 More in the [shiny-bars](https://github.com/anaulin/generative-art/tree/master/shiny-bars) directory and its [README](shiny-bars/README.md).
+
+##  Shaded discs
+
+Example output:
+
+![](shaded-discs/output-2.png)
+
+More in the [shaded-discs](https://github.com/anaulin/generative-art/tree/master/shaded-discs) directory and its [README](shaded-discs/README.md).
 
