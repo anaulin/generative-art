@@ -32,6 +32,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Shaded discs](#shaded-discs)
   - [Shiny spheres](#shiny-spheres)
   - [Color field](#color-field)
+  - [Contrasting triangles](#contrasting-triangles)
 
 ## Circle packing
 
@@ -265,4 +266,12 @@ Example output:
 ![](color-field/output-2.png)
 
 More in the [color-field](https://github.com/anaulin/generative-art/tree/master/color-field) directory and its [README](color-field/README.md).
+
+##  Contrasting triangles
+
+Example output:
+
+![](contrasting-triangles/output-2.png)
+
+More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tree/master/contrasting-triangles) directory and its [README](contrasting-triangles/README.md).
 
