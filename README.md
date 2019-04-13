@@ -33,6 +33,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Shiny spheres](#shiny-spheres)
   - [Color field](#color-field)
   - [Contrasting triangles](#contrasting-triangles)
+  - [Quarter circles](#quarter-circles)
 
 ## Circle packing
 
@@ -274,4 +275,12 @@ Example output:
 ![](contrasting-triangles/output-2.png)
 
 More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tree/master/contrasting-triangles) directory and its [README](contrasting-triangles/README.md).
+
+##  Quarter circles
+
+Example output:
+
+![](quarter-circles/output-1.png)
+
+More in the [quarter-circles](https://github.com/anaulin/generative-art/tree/master/quarter-circles) directory and its [README](quarter-circles/README.md).
 
