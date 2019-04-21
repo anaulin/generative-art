@@ -1,15 +1,17 @@
 import random
 
+from esses import esses
 from fingers import fingers
 from pyramids import pyramids
 from reeds import reeds
-from esses import esses
+from shaky_circles import shaky_cirles
 
 experiments = [
     fingers.make_random,
     pyramids.make_random,
     reeds.make_random,
-    esses.make_random
+    esses.make_random,
+    shaky_cirles.make_random
 ]
 
 if __name__ == "__main__":

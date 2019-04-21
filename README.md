@@ -36,6 +36,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Contrasting triangles](#contrasting-triangles)
   - [Quarter circles](#quarter-circles)
   - [Quarter squares](#quarter-squares)
+- [Shaky circles](#shaky-circles)
 
 ## Packings
 
@@ -298,3 +299,11 @@ Example output:
 ![](quarter-squares/output-2.png)
 
 More in the [quarter-squares](https://github.com/anaulin/generative-art/tree/master/quarter-squares) directory and its [README](quarter-squares/README.md).
+
+##  Shaky circles
+
+Example output:
+
+![](shaky_circles/output-2.png)
+
+More in the [shaky_circles](https://github.com/anaulin/generative-art/tree/master/shaky_circles) directory and its [README](shaky_circles/README.md).
