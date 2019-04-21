@@ -59,4 +59,4 @@ def main(filename="output.png", palette=random.choice(palettes.PALETTES), count=
 if __name__ == "__main__":
     for idx, params in enumerate([(50, 30), (10, 100), (20, 40), (10, 300)]):
         (count, line_width) = params
-        main(filename="output-{}.png".format(idx), palette=random.choice(palettes.PALETTES), count=count, line_width=line_width)
+        main(filename="output-more-{}.png".format(idx), palette=random.choice(palettes.PALETTES), count=count, line_width=line_width)

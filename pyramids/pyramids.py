@@ -8,11 +8,6 @@ sys.path.append(os.path.abspath('..'))
 from lib import palettes
 from lib import colors
 
-# Final image dimensions
-IMG_HEIGHT = 2000
-IMG_WIDTH = 2000
-
-
 def pyramid(ctx, x, y, width, height, color, random_center=True):
     if random_center:
         center = ( random.randint(x + 3, x + width - 3), random.randint(y + 3, y + height - 3))
@@ -36,26 +31,29 @@ def triangle(ctx, p1, p2, p3, color):
     ctx.set_source_rgb(*color)
     ctx.fill()
 
-def main(filename="output.png", palette=random.choice(palettes.PALETTES), columns=15, rows=10):
-    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+def main(filename="output.png", img_width=2000, img_height=2000, palette=random.choice(palettes.PALETTES), columns=15, rows=10):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
     # Background
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.rectangle(0, 0, img_width, img_height)
     ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
     ctx.fill()
 
-    for x in range(0, IMG_WIDTH, IMG_WIDTH // columns):
-        for y in range(0, IMG_HEIGHT, IMG_HEIGHT // rows):
-            color = (random.random(), random.random(), random.random())
-            #pyramid(ctx, x, y, IMG_WIDTH // columns, IMG_HEIGHT // rows, palettes.hex_to_tuple(random.choice(palette['colors'])))
-            pyramid(ctx, x, y, IMG_WIDTH // columns, IMG_HEIGHT // rows, color)
+    for x in range(0, img_width, img_width // columns):
+        for y in range(0, img_height, img_height // rows):
+            pyramid(ctx, x, y, img_width // columns, img_height // rows, palettes.hex_to_tuple(random.choice(palette['colors'])))
 
     ims.write_to_png(filename)
 
 
+def make_random(filename="output.png"):
+    p = random.choice(palettes.PALETTES)
+    c = random.randint(5, 20)
+    r = random.randint(5, 20) if random.random() < 0.5 else c
+    main(filename=filename.format(1), palette=p, columns=c, rows=r)
+
 if __name__ == "__main__":
-    #for idx, params in enumerate([(10, 9), (7, 5), (17, 14)]):
-    #    (c, r) = params
-        main(filename="output-random-{}.png".format(1), palette=palettes.PALETTE_8, columns=10, rows=10)
+    for idx in range(5):
+        make_random(filename="output-{}.png".format(idx))

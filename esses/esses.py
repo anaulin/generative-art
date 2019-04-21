@@ -8,10 +8,6 @@ sys.path.append(os.path.abspath('..'))
 from lib import palettes
 from lib import colors
 
-# Final image dimensions
-IMG_HEIGHT = 2000
-IMG_WIDTH = int(IMG_HEIGHT * (16/9))
-
 def ess(ctx, x, y, width, height, color, line_width):
     tl = (x, y)
     bl = (x, y + height)
@@ -34,27 +30,33 @@ def make_curve(ctx, points, color, line_width):
     ctx.stroke()
 
 
-def main(filename="output.png", palette=random.choice(palettes.PALETTES), rows=20, columns=20, line_width=20):
-    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+def main(filename="output.png", img_width=2000, img_height=2000, palette=random.choice(palettes.PALETTES), rows=20, columns=20, line_width=20):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
     # Background
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.rectangle(0, 0, img_width, img_height)
     ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
     ctx.fill()
 
-    cell_width = IMG_WIDTH // columns
-    cell_height = IMG_WIDTH // rows
-    for x in range(0, IMG_WIDTH, cell_width):
-        for y in range(0, IMG_HEIGHT, cell_height):
+    cell_width = img_width // columns
+    cell_height = img_width // rows
+    for x in range(0, img_width, cell_width):
+        for y in range(0, img_height, cell_height):
             color = palettes.hex_to_tuple(random.choice(palette['colors']))
             ess(ctx, x, y, cell_width, cell_height, color, line_width)
 
     ims.write_to_png(filename)
 
 
+def make_random(filename="output.png"):
+    p = random.choice(palettes.PALETTES)
+    r = random.randint(5, 80)
+    c = random.randint(5, 80) if random.random() < 0.5 else r
+    lw = random.randint(5, 25)
+    main(filename=filename, palette=p, rows=r, columns=c, line_width=lw)
+
 if __name__ == "__main__":
-    for idx, p in enumerate([(20, 20, 20), (100, 50, 20), (200, 100, 5), (5, 5, 200), (10, 10, 200), (50, 50, 50), (10, 10, 300)]):
-        (r, c, lw) = p
-        main(filename="output-{}.png".format(idx), palette=random.choice(palettes.PALETTES), rows=r, columns=c, line_width=lw)
+    for idx in range(5):
+        make_random(filename="output-{}.png".format(idx))
