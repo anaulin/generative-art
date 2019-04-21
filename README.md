@@ -34,6 +34,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Color field](#color-field)
   - [Contrasting triangles](#contrasting-triangles)
   - [Quarter circles](#quarter-circles)
+  - [Quarter squares](#quarter-squares)
 
 ## Circle packing
 
@@ -283,4 +284,12 @@ Example output:
 ![](quarter-circles/output-1.png)
 
 More in the [quarter-circles](https://github.com/anaulin/generative-art/tree/master/quarter-circles) directory and its [README](quarter-circles/README.md).
+
+##  Quarter squares
+
+Example output:
+
+![](quarter-squares/output-2.png)
+
+More in the [quarter-squares](https://github.com/anaulin/generative-art/tree/master/quarter-squares) directory and its [README](quarter-squares/README.md).
 
