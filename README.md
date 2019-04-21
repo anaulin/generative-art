@@ -1,42 +1,45 @@
-# Generative art experiments
+# Generative art experiments  <!-- omit in toc -->
 
 Buy prints, t-shirts and other products with some of the art from this repo:
 https://robotmolecule.threadless.com/
 
 Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
 
-- [Generative art experiments](#generative-art-experiments)
+- [Packings](#packings)
   - [Circle packing](#circle-packing)
   - [Square packing](#square-packing)
-  - [Auto-Mondrian](#auto-mondrian)
+- [Auto-Mondrian](#auto-mondrian)
+- [Fingers](#fingers)
+- [Nested squares](#nested-squares)
+- [Coral play](#coral-play)
+- [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
+- [Random lines](#random-lines)
+- [Reeds](#reeds)
+- [Diagonals](#diagonals)
+- [Petal grid](#petal-grid)
+- [Abstract retro grid](#abstract-retro-grid)
+- [Pyramids](#pyramids)
+- [Squiggly lines](#squiggly-lines)
+- [Squiggly nodes](#squiggly-nodes)
+- [Just circles](#just-circles)
+- [Curving lines](#curving-lines)
+- [Broken lines](#broken-lines)
+- [Esses](#esses)
+- [Just shapes](#just-shapes)
+- [Un deux trois](#un-deux-trois)
+- [Shiny bars](#shiny-bars)
+- [Shaded discs](#shaded-discs)
+- [Shiny spheres](#shiny-spheres)
+- [Color field](#color-field)
+- [Truchet tilings](#truchet-tilings)
   - [Tiled lines](#tiled-lines)
-  - [Fingers](#fingers)
-  - [Nested squares](#nested-squares)
-  - [Coral play](#coral-play)
-  - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
-  - [Random lines](#random-lines)
-  - [Reeds](#reeds)
-  - [Diagonals](#diagonals)
-  - [Petal grid](#petal-grid)
-  - [Abstract retro grid](#abstract-retro-grid)
-  - [Pyramids](#pyramids)
-  - [Squiggly lines](#squiggly-lines)
-  - [Squiggly nodes](#squiggly-nodes)
-  - [Just circles](#just-circles)
-  - [Curving lines](#curving-lines)
-  - [Broken lines](#broken-lines)
-  - [Esses](#esses)
-  - [Just shapes](#just-shapes)
-  - [Un deux trois](#un-deux-trois)
-  - [Shiny bars](#shiny-bars)
-  - [Shaded discs](#shaded-discs)
-  - [Shiny spheres](#shiny-spheres)
-  - [Color field](#color-field)
   - [Contrasting triangles](#contrasting-triangles)
   - [Quarter circles](#quarter-circles)
   - [Quarter squares](#quarter-squares)
 
-## Circle packing
+## Packings
+
+### Circle packing
 
 Example outputs:
 
@@ -46,7 +49,7 @@ Example outputs:
 
 More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle-packing) and its [README](circle-packing/README.md).
 
-## Square packing
+### Square packing
 
 Example output:
 
@@ -64,18 +67,6 @@ Example output:
 
 More in the [auto-mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto-mondrian/) and its [README](auto-mondrian/README.md).
 
-
-## Tiled lines
-
-Example output:
-
-![](tiled-lines/output-3.png)
-
-![](tiled-lines/output-100-dark-bg.png)
-
-![](tiled-lines/output-1-color.png)
-
-More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tree/master/tiled-lines/) and its [README](tiled-lines/README.md).
 
 ## Fingers
 
@@ -269,7 +260,22 @@ Example output:
 
 More in the [color-field](https://github.com/anaulin/generative-art/tree/master/color-field) directory and its [README](color-field/README.md).
 
-##  Contrasting triangles
+## Truchet tilings
+
+### Tiled lines
+
+Example output:
+
+![](tiled-lines/output-3.png)
+
+![](tiled-lines/output-100-dark-bg.png)
+
+![](tiled-lines/output-1-color.png)
+
+More in the [tiled-lines directory](https://github.com/anaulin/generative-art/tree/master/tiled-lines/) and its [README](tiled-lines/README.md).
+
+
+###  Contrasting triangles
 
 Example output:
 
@@ -277,7 +283,7 @@ Example output:
 
 More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tree/master/contrasting-triangles) directory and its [README](contrasting-triangles/README.md).
 
-##  Quarter circles
+###  Quarter circles
 
 Example output:
 
@@ -285,11 +291,10 @@ Example output:
 
 More in the [quarter-circles](https://github.com/anaulin/generative-art/tree/master/quarter-circles) directory and its [README](quarter-circles/README.md).
 
-##  Quarter squares
+###  Quarter squares
 
 Example output:
 
 ![](quarter-squares/output-2.png)
 
 More in the [quarter-squares](https://github.com/anaulin/generative-art/tree/master/quarter-squares) directory and its [README](quarter-squares/README.md).
-
