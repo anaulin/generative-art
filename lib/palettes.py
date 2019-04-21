@@ -1,4 +1,5 @@
 import random
+from . import colors
 
 # A palette is a dict with a 'background' and a list of 'colors'.
 
@@ -132,7 +133,12 @@ DTG_PALETTE_REDS_AND_BLUES = {
 PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
 DTG_PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
 
+# Add as many randomly-generated palettes as we have hardcoded ones
+for _ in range(len(PALETTES)):
+    PALETTES.append(colors.random_palette(n=5))
 
+
+# Misc helper functions
 def hex_to_tuple(hex):
     hex = hex.lstrip('#')
     return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
