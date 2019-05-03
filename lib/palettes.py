@@ -134,7 +134,7 @@ PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
 DTG_PALETTES.append(DTG_PALETTE_REDS_AND_BLUES)
 
 # Add as many randomly-generated palettes as we have hardcoded ones
-for _ in range(len(PALETTES)):
+for _ in range(len(PALETTES) + 4):
     PALETTES.append(colors.random_palette(n=5))
 
 

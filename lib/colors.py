@@ -24,7 +24,7 @@ def shades(color, n):
 
 def random_palette(n=5):
     return {
-        'background': '#FFFFFF',
+        'background': '#FFFFFF' if random.random() < 0.5 else '#000000',
         'colors': randomcolor.RandomColor().generate(count=n)
     }
 
