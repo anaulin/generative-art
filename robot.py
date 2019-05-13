@@ -2,6 +2,7 @@ import random
 
 from esses import esses
 from fingers import fingers
+from lanterns import lanterns
 from pyramids import pyramids
 from reeds import reeds
 from shaky_circles import shaky_cirles
@@ -13,7 +14,8 @@ experiments = [
     reeds.make_random,
     esses.make_random,
     shaky_cirles.make_random,
-    shaky_squares.make_random
+    shaky_squares.make_random,
+    lanterns.make_random
 ]
 
 if __name__ == "__main__":

@@ -38,6 +38,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
   - [Quarter squares](#quarter-squares)
 - [Shaky circles](#shaky-circles)
 - [Shaky squares](#shaky-squares)
+- [Lanterns](#lanterns)
 
 ## Packings
 
@@ -316,3 +317,11 @@ Example output:
 ![](shaky_squares/output-2.png)
 
 More in the [shaky_squares](https://github.com/anaulin/generative-art/tree/master/shaky_squares) directory and its [README](shaky_squares/README.md).
+
+##  Lanterns
+
+Example output:
+
+![](lanterns/output-3.png)
+
+More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lanterns) directory and its [README](lanterns/README.md).
