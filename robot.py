@@ -7,6 +7,7 @@ from pyramids import pyramids
 from reeds import reeds
 from shaky_circles import shaky_cirles
 from shaky_squares import shaky_squares
+from triangles import triangles
 
 experiments = [
     fingers.make_random,
@@ -15,7 +16,8 @@ experiments = [
     esses.make_random,
     shaky_cirles.make_random,
     shaky_squares.make_random,
-    lanterns.make_random
+    lanterns.make_random,
+    triangles.make_random,
 ]
 
 if __name__ == "__main__":

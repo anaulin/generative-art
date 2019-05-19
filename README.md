@@ -39,6 +39,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
 - [Shaky circles](#shaky-circles)
 - [Shaky squares](#shaky-squares)
 - [Lanterns](#lanterns)
+- [Triangles](#triangles)
 
 ## Packings
 
@@ -325,3 +326,11 @@ Example output:
 ![](lanterns/output-3.png)
 
 More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lanterns) directory and its [README](lanterns/README.md).
+
+##  Triangles
+
+Example output:
+
+![](triangles/output-0.png)
+
+More in the [triangles](https://github.com/anaulin/generative-art/tree/master/triangles) directory and its [README](triangles/README.md).
