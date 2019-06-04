@@ -55,9 +55,13 @@ def main(filename="output.png", step=50, line_width=5, palette=random.choice(pal
 
     ims.write_to_png(filename)
 
+def make_random(filename="output.png"):
+    step_size = IMG_WIDTH // random.randint(3, 90)
+    line_width = step_size // random.randint(2, 8)
+    p = random.choice(palettes.PALETTES)
+    print(filename, os.path.basename(__file__), step_size, line_width, p)
+    main(filename=filename, step=step_size, line_width=line_width, palette=p)
 
 if __name__ == "__main__":
-    for idx, step_count in enumerate(range(3, 25, 5)):
-        step_size = IMG_WIDTH // step_count
-        line_width = step_size // 3
-        main(filename="output-big-step-{}.png".format(idx), step=step_size, line_width=line_width, palette=random.choice(palettes.PALETTES))
+    for idx in range(5):
+        make_random(filename="output-random-{}.png".format(idx))

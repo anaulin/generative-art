@@ -81,7 +81,7 @@ def main(filename="output.png", img_width=2000, n=10, palette=random.choice(pale
 def make_random(filename="output.png"):
     n = random.randint(6, 42)
     p = random.choice(palettes.PALETTES)
-    print(filename, n, p)
+    print(filename, os.path.basename(__file__), n, p)
     main(filename=filename, n=n, palette=p)
 
 if __name__ == "__main__":
