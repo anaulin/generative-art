@@ -8,6 +8,7 @@ from reeds import reeds
 from shaky_circles import shaky_cirles
 from shaky_squares import shaky_squares
 from triangles import triangles
+from triangles_two import triangles_two
 
 experiments = [
     fingers.make_random,
@@ -18,6 +19,7 @@ experiments = [
     shaky_squares.make_random,
     lanterns.make_random,
     triangles.make_random,
+    triangles_two.make_random,
 ]
 
 if __name__ == "__main__":
