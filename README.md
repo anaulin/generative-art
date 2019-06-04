@@ -340,6 +340,6 @@ More in the [triangles](https://github.com/anaulin/generative-art/tree/master/tr
 
 Example output:
 
-![](triangles/output-0.png)
+![](triangles_two/output-0.png)
 
-More in the [triangles](https://github.com/anaulin/generative-art/tree/master/triangles) directory and its [README](triangles/README.md).
+More in the [triangles_two](https://github.com/anaulin/generative-art/tree/master/triangles_two) directory and its [README](triangles_two/README.md).
