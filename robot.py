@@ -1,5 +1,6 @@
 import random
 
+from bubbles import bubbles
 from esses import esses
 from fingers import fingers
 from lanterns import lanterns
@@ -21,7 +22,8 @@ experiments = [
     lanterns.make_random,
     triangles.make_random,
     triangles_two.make_random,
-    tiled_lines.make_random
+    tiled_lines.make_random,
+    bubbles.make_random
 ]
 
 if __name__ == "__main__":
