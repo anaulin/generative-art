@@ -3,6 +3,7 @@ import random
 from bubbles import bubbles
 from esses import esses
 from fingers import fingers
+from fingers_two import fingers_two
 from lanterns import lanterns
 from pyramids import pyramids
 from reeds import reeds
@@ -23,7 +24,8 @@ experiments = [
     triangles.make_random,
     triangles_two.make_random,
     tiled_lines.make_random,
-    bubbles.make_random
+    bubbles.make_random,
+    fingers_two.make_random,
 ]
 
 if __name__ == "__main__":

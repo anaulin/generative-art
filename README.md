@@ -42,6 +42,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
 - [Triangles](#Triangles)
 - [Triangles two](#Triangles-two)
 - [Bubbles](#Bubbles)
+- [Fingers two](#Fingers-two)
 
 ## Packings
 
@@ -352,3 +353,11 @@ Example output:
 ![](bubbles/output-0.png)
 
 More in the [bubbles](https://github.com/anaulin/generative-art/tree/master/bubbles) directory and its [README](bubbles/README.md).
+
+## Fingers two
+
+Example output:
+
+![](fingers_two/output-0.png)
+
+More in the [fingers_two](https://github.com/anaulin/generative-art/tree/master/fingers_two) directory and its [README](fingers_two/README.md).
