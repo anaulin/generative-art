@@ -1,0 +1,7 @@
+pycairo
+shapely
+
+pylint
+autopep8
+
+-r lib/requirements.txt

@@ -5,44 +5,47 @@ https://robotmolecule.threadless.com/
 
 Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
 
-- [Packings](#Packings)
-  - [Circle packing](#Circle-packing)
-  - [Square packing](#Square-packing)
-- [Auto-Mondrian](#Auto-Mondrian)
-- [Fingers](#Fingers)
-- [Nested squares](#Nested-squares)
-- [Coral play](#Coral-play)
-- [Glitch-like lines in square cells](#Glitch-like-lines-in-square-cells)
-- [Random lines](#Random-lines)
-- [Reeds](#Reeds)
-- [Diagonals](#Diagonals)
-- [Petal grid](#Petal-grid)
-- [Abstract retro grid](#Abstract-retro-grid)
-- [Pyramids](#Pyramids)
-- [Squiggly lines](#Squiggly-lines)
-- [Squiggly nodes](#Squiggly-nodes)
-- [Just circles](#Just-circles)
-- [Curving lines](#Curving-lines)
-- [Broken lines](#Broken-lines)
-- [Esses](#Esses)
-- [Just shapes](#Just-shapes)
-- [Un deux trois](#Un-deux-trois)
-- [Shiny bars](#Shiny-bars)
-- [Shaded discs](#Shaded-discs)
-- [Shiny spheres](#Shiny-spheres)
-- [Color field](#Color-field)
-- [Truchet tilings](#Truchet-tilings)
-  - [Tiled lines](#Tiled-lines)
-  - [Contrasting triangles](#Contrasting-triangles)
-  - [Quarter circles](#Quarter-circles)
-  - [Quarter squares](#Quarter-squares)
-- [Shaky circles](#Shaky-circles)
-- [Shaky squares](#Shaky-squares)
-- [Lanterns](#Lanterns)
-- [Triangles](#Triangles)
-- [Triangles two](#Triangles-two)
-- [Bubbles](#Bubbles)
-- [Fingers two](#Fingers-two)
+- [Packings](#packings)
+  - [Circle packing](#circle-packing)
+  - [Square packing](#square-packing)
+- [Auto-Mondrian](#auto-mondrian)
+- [Fingers](#fingers)
+- [Nested squares](#nested-squares)
+- [Coral play](#coral-play)
+- [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
+- [Random lines](#random-lines)
+- [Reeds](#reeds)
+- [Diagonals](#diagonals)
+- [Petal grid](#petal-grid)
+- [Abstract retro grid](#abstract-retro-grid)
+- [Pyramids](#pyramids)
+- [Squiggly lines](#squiggly-lines)
+- [Squiggly nodes](#squiggly-nodes)
+- [Just circles](#just-circles)
+- [Curving lines](#curving-lines)
+- [Broken lines](#broken-lines)
+- [Esses](#esses)
+- [Just shapes](#just-shapes)
+- [Un deux trois](#un-deux-trois)
+- [Shiny bars](#shiny-bars)
+- [Shaded discs](#shaded-discs)
+- [Shiny spheres](#shiny-spheres)
+- [Color field](#color-field)
+- [Truchet tilings](#truchet-tilings)
+  - [Tiled lines](#tiled-lines)
+  - [Contrasting triangles](#contrasting-triangles)
+  - [Quarter circles](#quarter-circles)
+  - [Quarter squares](#quarter-squares)
+- [Shaky circles](#shaky-circles)
+- [Shaky squares](#shaky-squares)
+- [Lanterns](#lanterns)
+- [Triangles](#triangles)
+- [Triangles two](#triangles-two)
+- [Bubbles](#bubbles)
+- [Fingers two](#fingers-two)
+- [Development](#development)
+  - [Virtual env and dependency install](#virtual-env-and-dependency-install)
+  - [Installing pycairo](#installing-pycairo)
 
 ## Packings
 
@@ -361,3 +364,35 @@ Example output:
 ![](fingers_two/output-0.png)
 
 More in the [fingers_two](https://github.com/anaulin/generative-art/tree/master/fingers_two) directory and its [README](fingers_two/README.md).
+
+## Development
+
+### Virtual env and dependency install
+
+Create new virtual env:
+```
+$ python3 -m venv .venv
+```
+
+Activate virtual env:
+```
+$ source .venv/bin/activate
+```
+
+Install requirements:
+```
+pip install -r requirements.txt
+```
+
+### Installing pycairo
+
+On macOS, you'll need to install `cairo` itself first. You can do this using Homebrew:
+```
+$ brew install --cc=clang cairo
+```
+
+If you get an error that says `'pkg-config' not found`, try:
+```
+$ brew install pkg-config
+```
+See more discussion on this error here: https://github.com/googlefonts/fontdiffenator/issues/38
