@@ -8,12 +8,8 @@ sys.path.append(os.path.abspath('..'))
 from lib import palettes
 
 # Final image dimensions
-# Threadless wall art recommended: 12000 x 8400px JPG
-# Blanket recommended: 12500 x 9375px JPG
 IMG_HEIGHT = 2160
 IMG_WIDTH = 3840
-#IMG_HEIGHT = 6300  # 4200
-#IMG_WIDTH = 7200  # 4800
 
 # Circle paramaters
 MIN_RADIUS = int(IMG_HEIGHT / 150)
@@ -50,9 +46,17 @@ class Circle:
         if self.r >= MAX_RADIUS:
             return self
 
-        grown_circle = Circle(self.x, self.y, self.r + 1)
+        grown_radius = self.r + 1
+        grown_circle = Circle(self.x, self.y, grown_radius)
+        while not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas():
+            grown_radius += 1
+            if grown_radius >= MAX_RADIUS:
+                break
+            grown_circle = Circle(self.x, self.y, grown_radius)
+
+        grown_circle = Circle(self.x, self.y, grown_radius - 1)
         if not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas():
-            return grown_circle.pack(circles)
+            return grown_circle
         else:
             return self
 
