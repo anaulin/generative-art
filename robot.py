@@ -1,11 +1,14 @@
 import random
 
 from bubbles import bubbles
+from coral_play import coral_play
+from circle_pack import circle_pack
 from esses import esses
 from fingers import fingers
 from fingers_two import fingers_two
 from lanterns import lanterns
 from pyramids import pyramids
+from quarter_circles import quarter_circles
 from reeds import reeds
 from shaky_circles import shaky_cirles
 from shaky_squares import shaky_squares
@@ -26,6 +29,9 @@ experiments = [
     tiled_lines.make_random,
     bubbles.make_random,
     fingers_two.make_random,
+    quarter_circles.make_random,
+    coral_play.make_random,
+    circle_pack.make_random
 ]
 
 if __name__ == "__main__":

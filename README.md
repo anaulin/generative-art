@@ -53,11 +53,11 @@ Each directory in this repo contains a different experiment, and has its own `RE
 
 Example outputs:
 
-![](circle-packing/images/circle-pack-palette1-1.jpg)
+![](circle_pack/images/circle-pack-palette1-1.jpg)
 
-![](circle-packing/images/circle-pack-concentric-random-colors-6.jpg)
+![](circle_pack/images/circle-pack-concentric-random-colors-6.jpg)
 
-More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle-packing) and its [README](circle-packing/README.md).
+More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle_pack) and its [README](circle_pack/README.md).
 
 ### Square packing
 
@@ -102,9 +102,9 @@ More in the [nested-squares directory](https://github.com/anaulin/generative-art
 
 Example output:
 
-![](coral-play/output-4.png)
+![](coral_play/output-4.png)
 
-More in the [coral-play directory](https://github.com/anaulin/generative-art/tree/master/coral-play/) and its [README](coral-play/README.md).
+More in the [coral_play directory](https://github.com/anaulin/generative-art/tree/master/coral_play/) and its [README](coral_play/README.md).
 
 
 ## Glitch-like lines in square cells
@@ -297,9 +297,9 @@ More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tr
 
 Example output:
 
-![](quarter-circles/output-1.png)
+![](quarter_circles/output-1.png)
 
-More in the [quarter-circles](https://github.com/anaulin/generative-art/tree/master/quarter-circles) directory and its [README](quarter-circles/README.md).
+More in the [quarter-circles](https://github.com/anaulin/generative-art/tree/master/quarter_circles) directory and its [README](quarter_circles/README.md).
 
 ###  Quarter squares
 

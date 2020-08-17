@@ -84,6 +84,12 @@ def main(filename="output.png", img_width=2000, img_height=2000, rows=10, column
 
     ims.write_to_png(filename)
 
+def make_random(filename="output.png"):
+    p = random.choice(palettes.PALETTES)
+    n = random.randint(4, 16)
+    fill = random.choice([True, False])
+    print(filename, n, fill, p)
+    main(filename=filename, rows=n, columns=n, palette=p, fill= fill)
 
 if __name__ == "__main__":
     for idx in range(5):
