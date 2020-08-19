@@ -121,7 +121,7 @@ def main(filename="output.png", palette=CORAL_PALETTE, rows=6, columns=6):
 def make_random(filename="output.png"):
     p = random.choice(palettes.PALETTES)
     count = random.choice([5, 6, 7, 8, 10])
-    print(filename, n, fill, p)
+    print(filename, count, p)
     main(filename=filename, rows=count, columns=random.randint(count, int(count * 1.5)), palette=p)
 
 if __name__ == "__main__":
