@@ -78,9 +78,8 @@ def main(filename="output.png", img_width=2000, n=10, palette=random.choice(pale
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png"):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
     n = random.randint(6, 42)
-    p = random.choice(palettes.PALETTES)
     print(filename, os.path.basename(__file__), n, p)
     main(filename=filename, n=n, palette=p)
 

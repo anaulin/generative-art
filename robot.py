@@ -1,5 +1,7 @@
 import random
 
+from lib import palettes
+
 from bubbles import bubbles
 from coral_play import coral_play
 from circle_pack import circle_pack
@@ -35,6 +37,9 @@ experiments = [
 ]
 
 if __name__ == "__main__":
+    # p = palettes.PALETTE_2
+    # for idx, exp in enumerate(experiments):
+    #     exp(filename="output-{}.png".format(idx), p=p)
     for idx in range(10):
         exp = random.choice(experiments)
         exp(filename="output-{}.png".format(idx))

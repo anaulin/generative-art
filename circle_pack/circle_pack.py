@@ -148,8 +148,7 @@ def main(palette=random.choice(palettes.PALETTES), filename="output.png"):
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png"):
-    p = random.choice(palettes.PALETTES)
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
     print(filename, p)
     main(filename=filename, palette=p)
 

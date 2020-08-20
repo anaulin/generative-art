@@ -55,10 +55,9 @@ def main(filename="output.png", step=50, line_width=5, palette=random.choice(pal
 
     ims.write_to_png(filename)
 
-def make_random(filename="output.png"):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
     step_size = IMG_WIDTH // random.randint(3, 90)
     line_width = step_size // random.randint(2, 8)
-    p = random.choice(palettes.PALETTES)
     print(filename, os.path.basename(__file__), step_size, line_width, p)
     main(filename=filename, step=step_size, line_width=line_width, palette=p)
 

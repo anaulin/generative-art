@@ -39,9 +39,8 @@ def main(filename="output.png", img_width=2000, n=10, shake_count=5, palette=ran
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png"):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
     n = random.randint(4, 32)
-    p = random.choice(palettes.PALETTES)
     c = random.randint(4, 10)
     main(filename=filename, n=n, palette=p, shake_count=c)
 

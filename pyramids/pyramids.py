@@ -48,8 +48,7 @@ def main(filename="output.png", img_width=2000, img_height=2000, palette=random.
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png"):
-    p = random.choice(palettes.PALETTES)
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
     c = random.randint(5, 20)
     r = random.randint(5, 20) if random.random() < 0.5 else c
     main(filename=filename.format(1), palette=p, columns=c, rows=r)
