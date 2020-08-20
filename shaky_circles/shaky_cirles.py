@@ -39,10 +39,12 @@ def main(filename="output.png", img_width=2000, n=10, shake_count=5, palette=ran
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+# 'height' is unused, but keeping it for interface consistency.
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     n = random.randint(4, 32)
     c = random.randint(4, 10)
-    main(filename=filename, n=n, palette=p, shake_count=c)
+    print(filename, n, c, p, img_width, img_height)
+    main(filename=filename, n=n, palette=p, shake_count=c, img_width=max(img_height, img_width))
 
 if __name__ == "__main__":
     for idx in range(5):

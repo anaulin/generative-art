@@ -10,9 +10,7 @@ import os
 sys.path.append(os.path.abspath('..'))
 from lib import palettes
 
-# Final image dimensions
-IMG_HEIGHT = 2160
-IMG_WIDTH = 3840
+
 
 
 PANTONE_LIVING_CORAL_TCX = '#FF6F61'
@@ -99,29 +97,28 @@ def add_gradient_stops(color, gradient):
     gradient.add_color_stop_rgb(0, *color_variant(color))
     gradient.add_color_stop_rgb(1, *color_variant(color))
 
-
-def main(filename="output.png", palette=CORAL_PALETTE, rows=6, columns=6):
-    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+def main(filename="output.png", img_width=3840, img_height=2160, palette=CORAL_PALETTE, rows=6, columns=6):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
     # Make background solid color
     ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.rectangle(0, 0, img_width, img_height)
     ctx.fill()
 
-    cell_width = IMG_WIDTH // columns
-    cell_height = IMG_HEIGHT // rows
-    for y in range(0, IMG_HEIGHT, cell_height):
-        for x in range(0, IMG_WIDTH, cell_width):
+    cell_width = img_width // columns
+    cell_height = img_height // rows
+    for y in range(0, img_height, cell_height):
+        for x in range(0, img_width, cell_width):
             polyp(ctx, x, y, cell_width, cell_height, random.choice(palette['colors']))
 
     ims.write_to_png(filename)
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=3840, img_height=2160):
     count = random.choice([5, 6, 7, 8, 10])
     print(filename, count, p)
-    main(filename=filename, rows=count, columns=random.randint(count, int(count * 1.5)), palette=p)
+    main(filename=filename, rows=count, columns=random.randint(count, int(count * 1.5)), palette=p, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
     for idx, count in enumerate([5, 6, 7, 8, 10]):

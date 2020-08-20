@@ -7,14 +7,6 @@ import os
 sys.path.append(os.path.abspath('..'))
 from lib import palettes
 
-# Final image dimensions
-IMG_HEIGHT = 2160
-IMG_WIDTH = 3840
-
-# Circle paramaters
-MIN_RADIUS = int(IMG_HEIGHT / 150)
-MAX_RADIUS = int(IMG_HEIGHT / 7)
-
 TOTAL_CIRCLE_ATTEMPTS = 100000
 
 # Empty distance between circles
@@ -42,20 +34,20 @@ class Circle:
     def center(self):
         return (self.x + self.r, self.y + self.r)
 
-    def pack(self, circles):
-        if self.r >= MAX_RADIUS:
+    def pack(self, circles, max_radius, img_width, img_height):
+        if self.r >= max_radius:
             return self
 
         grown_radius = self.r + 1
         grown_circle = Circle(self.x, self.y, grown_radius)
-        while not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas():
+        while not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas(img_width, img_height):
             grown_radius += 1
-            if grown_radius >= MAX_RADIUS:
+            if grown_radius >= max_radius:
                 break
             grown_circle = Circle(self.x, self.y, grown_radius)
 
         grown_circle = Circle(self.x, self.y, grown_radius - 1)
-        if not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas():
+        if not grown_circle.intersectsAnythingElse(circles) and grown_circle.insideCanvas(img_width, img_height):
             return grown_circle
         else:
             return self
@@ -69,31 +61,31 @@ class Circle:
                 return True
         return False
 
-    def insideCanvas(self):
-        return ((self.x + 2 * self.r <= IMG_WIDTH)
-                and (self.y + 2 * self.r) <= IMG_HEIGHT)
+    def insideCanvas(self, img_width, img_height):
+        return ((self.x + 2 * self.r <= img_width)
+                and (self.y + 2 * self.r) <= img_height)
 
 
-def randomCircleWithRadius(radius):
+def randomCircleWithRadius(radius, img_width, img_height):
     return Circle(
-        random.randint(0, IMG_WIDTH - 2 * radius),
-        random.randint(0, IMG_HEIGHT - 2 * radius),
+        random.randint(0, img_width - 2 * radius),
+        random.randint(0, img_height - 2 * radius),
         radius
     )
 
 
-def makeRandomCircle(circles):
+def makeRandomCircle(circles, min_radius, max_radius, img_width, img_height):
     # simple version, without "growing" circles to pack the space
     # return makeRandomCircleSeed(circles, radius=random.randint(MIN_RADIUS, MAX_RADIUS))
-    c = maybeMakeRandomCircleSeed(circles)
+    c = maybeMakeRandomCircleSeed(circles, min_radius, img_width, img_height)
     if not c:
         return None
 
-    return c.pack(circles)
+    return c.pack(circles, max_radius, img_width, img_height)
 
 
-def maybeMakeRandomCircleSeed(circles, radius=MIN_RADIUS):
-    c = randomCircleWithRadius(radius)
+def maybeMakeRandomCircleSeed(circles, radius, img_width, img_height):
+    c = randomCircleWithRadius(radius, img_width, img_height)
     if c.intersectsAnythingElse(circles):
         # Did not succeed at finding a good spot
         return None
@@ -106,11 +98,11 @@ def hex_to_tuple(hex):
     return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
 
 
-def concentric(ctx, circle, palette, step=1.5):
+def concentric(ctx, circle, palette, min_radius, step=1.5):
     colors = palette['colors']
     background = palette['background']
     (center_x, center_y) = circle.center()
-    radii = range(circle.r, MIN_RADIUS, -int(MIN_RADIUS * step))
+    radii = range(circle.r, min_radius, - int(min_radius * step))
     for idx, radius in enumerate(radii):
         if idx % 2 == 0:
             ctx.arc(center_x, center_y, radius, 0, 2 * math.pi)
@@ -121,20 +113,21 @@ def concentric(ctx, circle, palette, step=1.5):
             ctx.set_source_rgb(*hex_to_tuple(background))
             ctx.fill()
 
-
-def main(palette=random.choice(palettes.PALETTES), filename="output.png"):
-    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+def main(palette=random.choice(palettes.PALETTES), filename="output.png", img_width=3840, img_height=2160):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ims.set_fallback_resolution(300.0, 300.0)
     ctx = cairo.Context(ims)
 
     # Background
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.rectangle(0, 0, img_width, img_width)
     ctx.set_source_rgb(*palettes.hex_to_tuple(palette['background']))
     ctx.fill()
 
+    min_radius = int(img_height / 150)
+    max_radius = int(img_height / 7)
     circles = []
     for _ in range(TOTAL_CIRCLE_ATTEMPTS):
-        c = makeRandomCircle(circles)
+        c = makeRandomCircle(circles, min_radius, max_radius, img_width, img_height)
         if c:
             print("New circle added. Total circles: ", len(circles))
             circles.append(c)
@@ -143,14 +136,14 @@ def main(palette=random.choice(palettes.PALETTES), filename="output.png"):
 
     for c in circles:
         step = random.uniform(1.1, 5)
-        concentric(ctx, c, palette, step=step)
+        concentric(ctx, c, palette, min_radius, step=step)
 
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=3840, img_height=2160):
     print(filename, p)
-    main(filename=filename, palette=p)
+    main(filename=filename, palette=p, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
     for idx in range(1):

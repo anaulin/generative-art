@@ -56,15 +56,14 @@ def main(filename="output.png", img_width=2000, img_height=2000, count=40, layer
 
     ims.write_to_png(filename)
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     l = random.randint(5, 100)
     c = random.randint(5, 50)
-    main(filename=filename, count=c, layers=l, palette=p)
+    if img_width != img_height:
+        img_width = img_height = max(img_width, img_height)
+    print(l, c, p, img_width, img_height)
+    main(filename=filename, count=c, layers=l, palette=p, img_width=img_width, img_height=img_height)
 
 if __name__ == "__main__":
     for idx in range(10):
-        l = random.randint(5, 100)
-        c = random.randint(5, 50)
-        p = random.choice(palettes.PALETTES)
-        main(filename="output-{}-{}-{}.png".format(c,
-                                                   l, idx), count=c, layers=l, palette=p)
+        make_random(filename="output-{}".format(idx))

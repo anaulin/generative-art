@@ -42,11 +42,11 @@ def main(filename="output.png", img_width=2000, n=10, max_subdiv=5, palette=rand
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     n = random.randint(8, 80)
     max_subdiv = random.randint(1, 8)
     print(filename, os.path.basename(__file__), n, max_subdiv, p)
-    main(filename=filename, n=n, max_subdiv=max_subdiv, palette=p)
+    main(filename=filename, n=n, max_subdiv=max_subdiv, palette=p, img_width=max(img_width, img_height))
 
 if __name__ == "__main__":
     for idx in range(5):

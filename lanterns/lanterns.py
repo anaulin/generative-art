@@ -42,10 +42,10 @@ def main(filename="output.png", img_width=2000, n=10, palette=random.choice(pale
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     n = random.randint(4, 24)
-    print(filename, n, p)
-    main(filename=filename, n=n, palette=p)
+    print(filename, n, p, img_width, img_height)
+    main(filename=filename, n=n, palette=p, img_width=max(img_width, img_height))
 
 if __name__ == "__main__":
     for idx in range(5):

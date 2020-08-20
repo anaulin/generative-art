@@ -46,12 +46,13 @@ def main(filename="output.png", img_width=2000, n=10, shake_count=5, palette=ran
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     n = random.randint(4, 32)
     c = random.randint(2, 16)
     s = random.randint(3, 10)
     l = random.randint(1, 8)
-    main(filename=filename, n=n, palette=p, shake_count=c, shakiness=s, line_width=l)
+    print(filename, n, c, s, l, p, img_width, img_height)
+    main(filename=filename, n=n, palette=p, shake_count=c, shakiness=s, line_width=l, img_width=max(img_width, img_height))
 
 if __name__ == "__main__":
     for idx in range(5):

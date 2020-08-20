@@ -65,10 +65,10 @@ def main(filename="output.png", img_width=2000, img_height=2000, palette=random.
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     count = random.randint(5, 50)
     vary = random.choice([True, False])
-    main(filename=filename, palette=p, reed_count=count, vary_colors=vary)
+    main(filename=filename, palette=p, reed_count=count, vary_colors=vary, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
     for idx in range(5):

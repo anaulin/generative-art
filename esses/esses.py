@@ -50,11 +50,12 @@ def main(filename="output.png", img_width=2000, img_height=2000, palette=random.
     ims.write_to_png(filename)
 
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     r = random.randint(5, 80)
     c = random.randint(5, 80) if random.random() < 0.5 else r
     lw = random.randint(5, 25)
-    main(filename=filename, palette=p, rows=r, columns=c, line_width=lw)
+    print(filename, r, c, lw, p, img_width, img_height)
+    main(filename=filename, palette=p, rows=r, columns=c, line_width=lw, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
     for idx in range(5):

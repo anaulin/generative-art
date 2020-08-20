@@ -38,8 +38,9 @@ experiments = [
 
 if __name__ == "__main__":
     # p = palettes.PALETTE_2
+    # p['background'] = '#ffffff'
     # for idx, exp in enumerate(experiments):
-    #     exp(filename="output-{}.png".format(idx), p=p)
+    #     exp(filename="output-{}.png".format(idx), p=p, img_width=9075, img_height=6201)
     for idx in range(10):
         exp = random.choice(experiments)
         exp(filename="output-{}.png".format(idx))

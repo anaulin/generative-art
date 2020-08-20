@@ -48,11 +48,11 @@ def main(filename="output.png", img_width=2000, img_height=2000, count=40, layer
 
     ims.write_to_png(filename)
 
-def make_random(filename="output.png", p=random.choice(palettes.PALETTES)):
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     l = random.randint(5, 25)
     c = random.randint(5, 25)
     print(filename, os.path.basename(__file__), c, l, p)
-    main(filename=filename, count=c, layers=l, palette=p)
+    main(filename=filename, count=c, layers=l, palette=p, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
     for idx in range(5):
