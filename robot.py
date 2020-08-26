@@ -1,3 +1,4 @@
+import argparse
 import random
 
 from lib import palettes
@@ -41,6 +42,15 @@ if __name__ == "__main__":
     # p['background'] = '#ffffff'
     # for idx, exp in enumerate(experiments):
     #     exp(filename="output-{}.png".format(idx), p=p, img_width=9075, img_height=6201)
-    for idx in range(10):
+    parser = argparse.ArgumentParser(description='Run the robot.')
+    parser.add_argument('--count', type=int, default=10,
+                        help='Number of art pieces to produce')
+    parser.add_argument('--img_width', type=int, default=2000,
+                        help='Img width to use')
+    parser.add_argument('--img_height', type=int, default=2000,
+                        help='Img width to use')
+    args = parser.parse_args()
+    print(f"Generating {args.count} images with height/width of ({args.img_height}, {args.img_width})")
+    for idx in range(args.count):
         exp = random.choice(experiments)
-        exp(filename="output-{}.png".format(idx))
+        exp(filename="output-{}.png".format(idx), img_height=args.img_height, img_width=args.img_width)
