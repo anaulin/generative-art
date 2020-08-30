@@ -73,9 +73,9 @@ More in the [square-packing directory](https://github.com/anaulin/generative-art
 
 Example output:
 
-![](auto-mondrian/output-1.png)
+![](auto_mondrian/output-1.png)
 
-More in the [auto-mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto-mondrian/) and its [README](auto-mondrian/README.md).
+More in the [auto_mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto_mondrian/) and its [README](auto_mondrian/README.md).
 
 
 ## Fingers
