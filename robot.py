@@ -18,23 +18,25 @@ from shaky_squares import shaky_squares
 from tiled_lines import tiled_lines
 from triangles import triangles
 from triangles_two import triangles_two
+from auto_mondrian import auto_mondrian
 
 experiments = [
-    fingers.make_random,
-    pyramids.make_random,
-    reeds.make_random,
+    auto_mondrian.make_random,
+    bubbles.make_random,
+    circle_pack.make_random,
+    coral_play.make_random,
     esses.make_random,
+    fingers_two.make_random,
+    fingers.make_random,
+    lanterns.make_random,
+    pyramids.make_random,
+    quarter_circles.make_random,
+    reeds.make_random,
     shaky_cirles.make_random,
     shaky_squares.make_random,
-    lanterns.make_random,
-    triangles.make_random,
-    triangles_two.make_random,
     tiled_lines.make_random,
-    bubbles.make_random,
-    fingers_two.make_random,
-    quarter_circles.make_random,
-    coral_play.make_random,
-    circle_pack.make_random
+    triangles_two.make_random,
+    triangles.make_random,
 ]
 
 if __name__ == "__main__":
@@ -50,7 +52,9 @@ if __name__ == "__main__":
     parser.add_argument('--img_height', type=int, default=2000,
                         help='Img width to use')
     args = parser.parse_args()
-    print(f"Generating {args.count} images with height/width of ({args.img_height}, {args.img_width})")
+    print(
+        f"Generating {args.count} images with height/width of ({args.img_height}, {args.img_width})")
     for idx in range(args.count):
         exp = random.choice(experiments)
-        exp(filename="output-{}.png".format(idx), img_height=args.img_height, img_width=args.img_width)
+        exp(filename="output-{}.png".format(idx),
+            img_height=args.img_height, img_width=args.img_width)
