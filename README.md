@@ -147,9 +147,9 @@ More in the [thick_diagonals](https://github.com/anaulin/generative-art/tree/mas
 
 Example output:
 
-![](petal-grid/output-2.png)
+![](petal_grid/output-2.png)
 
-More in the [petal-grid](https://github.com/anaulin/generative-art/tree/master/petal-grid) and its [README](petal-grid/README.md).
+More in the [petal_grid](https://github.com/anaulin/generative-art/tree/master/petal_grid) and its [README](petal_grid/README.md).
 
 ## Abstract retro grid
 

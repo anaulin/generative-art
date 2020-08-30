@@ -21,6 +21,7 @@ from triangles_two import triangles_two
 from auto_mondrian import auto_mondrian
 from nested_squares import nested_squares
 from thick_diagonals import thick_diagonals
+from petal_grid import petal_grid
 
 experiments = [
     auto_mondrian.make_random,
@@ -32,6 +33,7 @@ experiments = [
     fingers.make_random,
     lanterns.make_random,
     nested_squares.make_random,
+    petal_grid.make_random,
     pyramids.make_random,
     quarter_circles.make_random,
     reeds.make_random,
