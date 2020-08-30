@@ -266,9 +266,9 @@ More in the [shiny-spheres](https://github.com/anaulin/generative-art/tree/maste
 
 Example output:
 
-![](color-field/output-2.png)
+![](color_field/output-2.png)
 
-More in the [color-field](https://github.com/anaulin/generative-art/tree/master/color-field) directory and its [README](color-field/README.md).
+More in the [color_field](https://github.com/anaulin/generative-art/tree/master/color_field) directory and its [README](color_field/README.md).
 
 ## Truchet tilings
 

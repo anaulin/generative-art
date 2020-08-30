@@ -3,30 +3,32 @@ import random
 
 from lib import palettes
 
+from auto_mondrian import auto_mondrian
 from bubbles import bubbles
-from coral_play import coral_play
 from circle_pack import circle_pack
+from color_field import color_field
+from coral_play import coral_play
 from esses import esses
 from fingers import fingers
 from fingers_two import fingers_two
 from lanterns import lanterns
+from nested_squares import nested_squares
+from petal_grid import petal_grid
 from pyramids import pyramids
 from quarter_circles import quarter_circles
 from reeds import reeds
 from shaky_circles import shaky_cirles
 from shaky_squares import shaky_squares
+from thick_diagonals import thick_diagonals
 from tiled_lines import tiled_lines
 from triangles import triangles
 from triangles_two import triangles_two
-from auto_mondrian import auto_mondrian
-from nested_squares import nested_squares
-from thick_diagonals import thick_diagonals
-from petal_grid import petal_grid
 
 experiments = [
     auto_mondrian.make_random,
     bubbles.make_random,
     circle_pack.make_random,
+    color_field.make_random,
     coral_play.make_random,
     esses.make_random,
     fingers_two.make_random,
