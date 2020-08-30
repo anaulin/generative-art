@@ -138,10 +138,10 @@ More in the [reeds](https://github.com/anaulin/generative-art/tree/master/reeds)
 
 Example output:
 
-![](thick-diagonals/output-0.png)
-![](thick-diagonals/output-3.png)
+![](thick_diagonals/output-0.png)
+![](thick_diagonals/output-3.png)
 
-More in the [thick-diagonals](https://github.com/anaulin/generative-art/tree/master/thick-diagonals) and its [README](thick-diagonals/README.md).
+More in the [thick_diagonals](https://github.com/anaulin/generative-art/tree/master/thick_diagonals) and its [README](thick_diagonals/README.md).
 
 ## Petal grid
 

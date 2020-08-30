@@ -20,6 +20,7 @@ from triangles import triangles
 from triangles_two import triangles_two
 from auto_mondrian import auto_mondrian
 from nested_squares import nested_squares
+from thick_diagonals import thick_diagonals
 
 experiments = [
     auto_mondrian.make_random,
@@ -36,6 +37,7 @@ experiments = [
     reeds.make_random,
     shaky_cirles.make_random,
     shaky_squares.make_random,
+    thick_diagonals.make_random,
     tiled_lines.make_random,
     triangles_two.make_random,
     triangles.make_random,
