@@ -93,9 +93,9 @@ More in the [fingers directory](https://github.com/anaulin/generative-art/tree/m
 
 Example output:
 
-![](nested-squares/output-all-palettes.png)
+![](nested_squares/output-all-palettes.png)
 
-More in the [nested-squares directory](https://github.com/anaulin/generative-art/tree/master/nested-squares/) and its [README](nested-squares/README.md).
+More in the [nested_squares directory](https://github.com/anaulin/generative-art/tree/master/nested_squares/) and its [README](nested_squares/README.md).
 
 
 ## Coral play
