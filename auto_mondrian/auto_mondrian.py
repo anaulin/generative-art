@@ -1,26 +1,11 @@
 import cairo
 import random
 
-# Image size
-IMG_HEIGHT = 2160
-IMG_WIDTH = 3840
-RATIO = IMG_WIDTH / IMG_HEIGHT
+import sys
+import os
+sys.path.append(os.path.abspath('..'))
+from lib import palettes
 
-PALETTE_1 = {
-    'background': '#000000',
-    'colors': ['#EEC525', '#C05F73', '#9D2045', '#511253', '#3A1B3D',
-               '#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85', '#6E44FF']
-}
-
-PALETTE_2 = {
-    'background': '#090909',
-    'colors': ['#4B5043', '#9BC4BC', '#D3FFE9', '#8DDBE0']
-}
-
-PALETTE_3 = {
-    'background': '#6E44FF',
-    'colors': ['#B892FF', '#FFC2E2', '#FF90B3', '#EF7A85']
-}
 
 # Mondrian colors
 YELLOW = '#FEFC0D'
@@ -42,11 +27,11 @@ def hex_to_tuple(hex):
     return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
 
 
-def area(x1, y1, x2, y2):
-    return abs((x2 - x1) * (y2 - y1) * RATIO)
+def area(x1, y1, x2, y2, ratio):
+    return abs((x2 - x1) * (y2 - y1) * ratio)
 
 
-def cleave_rectangle(x1, y1, x2, y2):
+def cleave_rectangle(x1, y1, x2, y2, ratio):
     print("cleaving: ", x1, y1, x2, y2)
     if (x2 - x1) >= (y2 - y1):
         # X is biggest dimension
@@ -59,30 +44,30 @@ def cleave_rectangle(x1, y1, x2, y2):
         r1 = (x1, new_y, x2, y2)
         r2 = (x1, y1, x2, new_y)
 
-    if area(*r1) < 60 or area(*r2) < 60:
+    if area(*r1, ratio) < 60 or area(*r2, ratio) < 60:
         # If it's too small, try again
-        return cleave_rectangle(x1, y1, x2, y2)
+        return cleave_rectangle(x1, y1, x2, y2, ratio)
 
     # Return the biggest rectangle first
-    if area(*r1) >= area(*r2):
+    if area(*r1, ratio) >= area(*r2, ratio):
         return (r1, r2)
     else:
         return (r2, r1)
 
-
-def main(palette=PALETTE, filename="output.png"):
-    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)
+def main(palette=PALETTE, filename="output.png", img_width=3840, img_height=2160):
+    ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ctx = cairo.Context(ims)
 
     # Set background color
     ctx.set_source_rgb(256, 256, 256)
-    ctx.rectangle(0, 0, IMG_WIDTH, IMG_HEIGHT)
+    ctx.rectangle(0, 0, img_width, img_height)
     ctx.fill()
 
-    remaining = (0, 0, IMG_WIDTH, IMG_HEIGHT)
+    remaining = (0, 0, img_width, img_height)
     rectangles = []
+    ratio = img_width / img_width
     for _ in range(8):
-        (bigger_r, smaller_r) = cleave_rectangle(*remaining)
+        (bigger_r, smaller_r) = cleave_rectangle(*remaining, ratio)
         remaining = bigger_r
         rectangles.append(smaller_r)
     rectangles.append(remaining)
@@ -124,24 +109,24 @@ def main(palette=PALETTE, filename="output.png"):
 
     # Also line the entire outer rectangle
     ctx.move_to(0,0)
-    ctx.line_to(IMG_WIDTH, 0)
+    ctx.line_to(img_width, 0)
     ctx.set_line_width(line_width)
     ctx.set_source_rgb(0, 0, 0)
     ctx.stroke()
 
-    ctx.move_to(IMG_WIDTH, 0)
-    ctx.line_to(IMG_WIDTH, IMG_HEIGHT)
+    ctx.move_to(img_width, 0)
+    ctx.line_to(img_width, img_height)
     ctx.set_source_rgb(0, 0, 0)
     ctx.set_line_width(line_width)
     ctx.stroke()
 
-    ctx.move_to(IMG_WIDTH, IMG_HEIGHT)
-    ctx.line_to(0, IMG_HEIGHT)
+    ctx.move_to(img_width, img_height)
+    ctx.line_to(0, img_height)
     ctx.set_source_rgb(0, 0, 0)
     ctx.set_line_width(line_width)
     ctx.stroke()
 
-    ctx.move_to(0, IMG_HEIGHT)
+    ctx.move_to(0, img_height)
     ctx.line_to(0, 0)
     ctx.set_source_rgb(0, 0, 0)
     ctx.set_line_width(line_width)
@@ -150,7 +135,13 @@ def main(palette=PALETTE, filename="output.png"):
 
     ims.write_to_png(filename)
 
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=3840, img_height=2160):
+    if random.randint(1, 10) <= 3:
+        p = PALETTE
+    print(filename, p)
+    main(filename=filename, palette=p, img_height=img_height, img_width=img_width)
+
 
 if __name__ == "__main__":
-    for i in [1, 2, 3]:
-        main(filename="output-{}.png".format(i))
+    for i in range(5):
+        make_random(filename="output-{}.png".format(i), p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000)

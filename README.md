@@ -73,9 +73,9 @@ More in the [square-packing directory](https://github.com/anaulin/generative-art
 
 Example output:
 
-![](auto-mondrian/output-1.png)
+![](auto_mondrian/output-1.png)
 
-More in the [auto-mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto-mondrian/) and its [README](auto-mondrian/README.md).
+More in the [auto_mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto_mondrian/) and its [README](auto_mondrian/README.md).
 
 
 ## Fingers
@@ -93,9 +93,9 @@ More in the [fingers directory](https://github.com/anaulin/generative-art/tree/m
 
 Example output:
 
-![](nested-squares/output-all-palettes.png)
+![](nested_squares/output-all-palettes.png)
 
-More in the [nested-squares directory](https://github.com/anaulin/generative-art/tree/master/nested-squares/) and its [README](nested-squares/README.md).
+More in the [nested_squares directory](https://github.com/anaulin/generative-art/tree/master/nested_squares/) and its [README](nested_squares/README.md).
 
 
 ## Coral play
@@ -138,18 +138,18 @@ More in the [reeds](https://github.com/anaulin/generative-art/tree/master/reeds)
 
 Example output:
 
-![](thick-diagonals/output-0.png)
-![](thick-diagonals/output-3.png)
+![](thick_diagonals/output-0.png)
+![](thick_diagonals/output-3.png)
 
-More in the [thick-diagonals](https://github.com/anaulin/generative-art/tree/master/thick-diagonals) and its [README](thick-diagonals/README.md).
+More in the [thick_diagonals](https://github.com/anaulin/generative-art/tree/master/thick_diagonals) and its [README](thick_diagonals/README.md).
 
 ## Petal grid
 
 Example output:
 
-![](petal-grid/output-2.png)
+![](petal_grid/output-2.png)
 
-More in the [petal-grid](https://github.com/anaulin/generative-art/tree/master/petal-grid) and its [README](petal-grid/README.md).
+More in the [petal_grid](https://github.com/anaulin/generative-art/tree/master/petal_grid) and its [README](petal_grid/README.md).
 
 ## Abstract retro grid
 
@@ -266,9 +266,9 @@ More in the [shiny-spheres](https://github.com/anaulin/generative-art/tree/maste
 
 Example output:
 
-![](color-field/output-2.png)
+![](color_field/output-2.png)
 
-More in the [color-field](https://github.com/anaulin/generative-art/tree/master/color-field) directory and its [README](color-field/README.md).
+More in the [color_field](https://github.com/anaulin/generative-art/tree/master/color_field) directory and its [README](color_field/README.md).
 
 ## Truchet tilings
 

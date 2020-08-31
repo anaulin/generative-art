@@ -27,7 +27,11 @@ def main(filename="output.png", img_width=2000, img_height=2000):
 
     ims.write_to_png(filename)
 
+# Palette is ignored, here for API consistency.
+def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=3840, img_height=2160):
+    print(filename)
+    main(filename=filename, img_height=img_height, img_width=img_width)
 
 if __name__ == "__main__":
-    for idx in range(10):
-        main(filename="output-{}.png".format(idx))
+    for idx in range(5):
+        make_random(filename="output-{}.png".format(idx))
