@@ -27,12 +27,8 @@ def main(filename="output.png", img_width=2000, n=10, max_subdiv=5, palette=rand
     ctx.fill()
 
     size = img_width // n
-    vertical_start = random.randint(0, img_height // 4)
-    vertical_end = random.randint(int(img_height * (3/4)), img_height)
-    for r in range(vertical_start, vertical_end - size, size):
-        row_start = random.randint(0, img_width // 4)
-        row_end = random.randint(int(img_width * (3/4)), img_width)
-        for c in range(row_start, row_end - size, size):
+    for r in range(0, img_height, size):
+        for c in range(0, img_width, size):
             subdiv = random.randint(1, max_subdiv)
             step = size // subdiv
             for y in range(subdiv):
@@ -43,11 +39,11 @@ def main(filename="output.png", img_width=2000, n=10, max_subdiv=5, palette=rand
 
 
 def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
-    n = random.randint(8, 80)
-    max_subdiv = random.randint(1, 8)
+    n = random.randint(10, 30)
+    max_subdiv = random.randint(2, 4)
     print(filename, os.path.basename(__file__), n, max_subdiv, p)
     main(filename=filename, n=n, max_subdiv=max_subdiv, palette=p, img_width=max(img_width, img_height))
 
 if __name__ == "__main__":
     for idx in range(5):
-        make_random(filename="output-{}.png".format(idx))
+        make_random(filename="output-{}.png".format(idx), p=random.choice(palettes.PALETTES))
