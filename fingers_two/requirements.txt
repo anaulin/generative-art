@@ -1,4 +1,0 @@
-pycairo
-
-pylint
-autopep8

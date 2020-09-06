@@ -171,8 +171,6 @@ More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/mast
 
 ## Just circles
 
-Example output:
-
 ![](images/just_circles.png)
 
 ## Curving lines
@@ -339,11 +337,7 @@ More in the [bubbles](https://github.com/anaulin/generative-art/tree/master/bubb
 
 ## Fingers two
 
-Example output:
-
-![](fingers_two/output-0.png)
-
-More in the [fingers_two](https://github.com/anaulin/generative-art/tree/master/fingers_two) directory and its [README](fingers_two/README.md).
+![](images/fingers_two.png)
 
 ## Development
 
