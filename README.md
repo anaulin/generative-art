@@ -1,9 +1,9 @@
-# Generative art experiments  <!-- omit in toc -->
+# Robot Molecule Generative Art  <!-- omit in toc -->
 
-Buy prints, t-shirts and other products with some of the art from this repo:
-http://robotmolecule.com
+The code in this repo powers http://robotmolecule.com, where a new generative artwork is posted every hour.
+You can buy prints, tees, household goods and other productswith some of these works at https://anaulin.redbubble.com
 
-Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
+Each directory in this repo contains a different "dream", and has its own `README` and example outputs.
 
 - [Packings](#packings)
   - [Circle packing](#circle-packing)
@@ -46,6 +46,7 @@ Each directory in this repo contains a different experiment, and has its own `RE
 - [Development](#development)
   - [Virtual env and dependency install](#virtual-env-and-dependency-install)
   - [Installing pycairo](#installing-pycairo)
+- [License](#license)
 
 ## Packings
 
@@ -396,3 +397,13 @@ If you get an error that says `'pkg-config' not found`, try:
 $ brew install pkg-config
 ```
 See more discussion on this error here: https://github.com/googlefonts/fontdiffenator/issues/38
+
+## License
+
+This code is available under an [AGPL-3.0 License](LICENSE). Images are
+available under a [Creative Commons Attribution-NonCommercial-ShareAlike
+license](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+If you'd like to use this code or images for commercial purposes, please
+contact me at ana@ulin.org. I'm also available for commissions and custom
+work.
