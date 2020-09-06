@@ -173,7 +173,7 @@ More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/mast
 
 Example output:
 
-![](images/just_circles.png.png)
+![](images/just_circles.png)
 
 ## Curving lines
 
