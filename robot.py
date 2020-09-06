@@ -11,6 +11,7 @@ from coral_play import coral_play
 from esses import esses
 from fingers import fingers
 from fingers_two import fingers_two
+from just_circles import just_circles
 from lanterns import lanterns
 from nested_squares import nested_squares
 from petal_grid import petal_grid
@@ -33,6 +34,7 @@ experiments = [
     esses.make_random,
     fingers_two.make_random,
     fingers.make_random,
+    just_circles.make_random,
     lanterns.make_random,
     nested_squares.make_random,
     petal_grid.make_random,

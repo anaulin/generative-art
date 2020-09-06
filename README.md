@@ -3,7 +3,7 @@
 The code in this repo powers http://robotmolecule.com, where a new generative artwork is posted every hour.
 You can buy prints, tees, household goods and other productswith some of these works at https://anaulin.redbubble.com
 
-Each directory in this repo contains a different "dream", and has its own `README` and example outputs.
+Each directory in this repo contains a different "dream" type for the Robot Molecule.
 
 - [Packings](#packings)
   - [Circle packing](#circle-packing)
@@ -58,8 +58,6 @@ Example outputs:
 
 ![](circle_pack/images/circle-pack-concentric-random-colors-6.jpg)
 
-More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle_pack) and its [README](circle_pack/README.md).
-
 ### Square packing
 
 Example output:
@@ -67,16 +65,11 @@ Example output:
 ![](square-packing/images/linear-gradient-2.png)
 ![](square-packing/output-nested-1.png)
 
-More in the [square-packing directory](https://github.com/anaulin/generative-art/tree/master/square-packing/) and its [README](square-packing/README.md)
-
-
 ## Auto-Mondrian
 
 Example output:
 
 ![](auto_mondrian/output-1.png)
-
-More in the [auto_mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto_mondrian/) and its [README](auto_mondrian/README.md).
 
 
 ## Fingers
@@ -87,16 +80,11 @@ Example output:
 ![](fingers/output-6-5-6.png)
 ![](fingers/output-50-50-3.png)
 
-More in the [fingers directory](https://github.com/anaulin/generative-art/tree/master/fingers/) and its [README](fingers/README.md).
-
-
 ## Nested squares
 
 Example output:
 
 ![](nested_squares/output-all-palettes.png)
-
-More in the [nested_squares directory](https://github.com/anaulin/generative-art/tree/master/nested_squares/) and its [README](nested_squares/README.md).
 
 
 ## Coral play
@@ -105,16 +93,12 @@ Example output:
 
 ![](coral_play/output-4.png)
 
-More in the [coral_play directory](https://github.com/anaulin/generative-art/tree/master/coral_play/) and its [README](coral_play/README.md).
-
 
 ## Glitch-like lines in square cells
 
 Example output:
 
 ![](lines-in-squares/output-2.png)
-
-More in the [lines-in-squares directory](https://github.com/anaulin/generative-art/tree/master/lines-in-squares/) and its [README](lines-in-squares/README.md).
 
 
 ## Random lines
@@ -123,8 +107,6 @@ Example output:
 
 ![](random-lines/output.png)
 ![](random-lines/output-4.png)
-
-More in the [random-lines directory](https://github.com/anaulin/generative-art/tree/master/random-lines) and its [README](random-lines/README.md).
 
 
 ## Reeds
@@ -191,10 +173,7 @@ More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/mast
 
 Example output:
 
-![](just-circles/output-0.png)
-
-More in the [just-circles](https://github.com/anaulin/generative-art/tree/master/just-circles) directory and its [README](just-circles/README.md).
-
+![](images/just_circles.png.png)
 
 ## Curving lines
 
