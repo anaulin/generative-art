@@ -1,5 +1,0 @@
-pycairo
-shapely
-
-pylint
-autopep8

@@ -43,6 +43,7 @@ Each directory in this repo contains a different "dream" type for the Robot Mole
 - [Triangles two](#triangles-two)
 - [Bubbles](#bubbles)
 - [Fingers two](#fingers-two)
+- [Robots (Self portrait)](#robots-self-portrait)
 - [Development](#development)
   - [Virtual env and dependency install](#virtual-env-and-dependency-install)
   - [Installing pycairo](#installing-pycairo)
@@ -313,31 +314,23 @@ More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lan
 
 ##  Triangles
 
-Example output:
-
-![](triangles/output-0.png)
-
-More in the [triangles](https://github.com/anaulin/generative-art/tree/master/triangles) directory and its [README](triangles/README.md).
+![](images/triangles.png)
 
 ##  Triangles two
 
-Example output:
-
-![](triangles_two/output-0.png)
-
-More in the [triangles_two](https://github.com/anaulin/generative-art/tree/master/triangles_two) directory and its [README](triangles_two/README.md).
+![](images/triangles_two.png)
 
 ##  Bubbles
 
-Example output:
-
-![](bubbles/output-0.png)
-
-More in the [bubbles](https://github.com/anaulin/generative-art/tree/master/bubbles) directory and its [README](bubbles/README.md).
+![](images/bubbles.png)
 
 ## Fingers two
 
 ![](images/fingers_two.png)
+
+## Robots (Self portrait)
+
+![](images/robots.png)
 
 ## Development
 

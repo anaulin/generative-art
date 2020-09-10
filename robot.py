@@ -18,6 +18,7 @@ from petal_grid import petal_grid
 from pyramids import pyramids
 from quarter_circles import quarter_circles
 from reeds import reeds
+from robots import robots
 from shaky_circles import shaky_cirles
 from shaky_squares import shaky_squares
 from thick_diagonals import thick_diagonals
@@ -41,6 +42,7 @@ experiments = [
     pyramids.make_random,
     quarter_circles.make_random,
     reeds.make_random,
+    robots.make_random,
     shaky_cirles.make_random,
     shaky_squares.make_random,
     thick_diagonals.make_random,

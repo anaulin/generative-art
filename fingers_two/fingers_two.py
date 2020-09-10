@@ -26,6 +26,10 @@ def draw_line(ctx, x, y, x2, y2, line_width, color):
 
 
 def main(filename="output.png", img_width=2000, img_height=2000, count=40, layers=80, palette=random.choice(palettes.PALETTES)):
+    while len(palette['colors']) < 3:
+        print(f"Palette {palette} has too few colors. Choosing another one.")
+        palette = random.choice(palettes.PALETTES)
+
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ctx = cairo.Context(ims)
 
