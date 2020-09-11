@@ -43,7 +43,7 @@ Each directory in this repo contains a different "dream" type for the Robot Mole
 - [Dulled Air Ioniser (triangles two)](#dulled-air-ioniser-triangles-two)
 - [Bubbles](#bubbles)
 - [Fingers two](#fingers-two)
-- [Robots (Self portrait)](#robots-self-portrait)
+- [Self-portrait (robots)](#self-portrait-robots)
 - [Development](#development)
   - [Virtual env and dependency install](#virtual-env-and-dependency-install)
   - [Installing pycairo](#installing-pycairo)
@@ -328,7 +328,7 @@ More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lan
 
 ![](images/fingers_two.png)
 
-## Robots (Self portrait)
+## Self-portrait (robots)
 
 ![](images/robots.png)
 
