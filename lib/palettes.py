@@ -100,6 +100,17 @@ PALETTE_12 = {
 }
 PALETTES.append(PALETTE_12)
 
+UNICORN = {
+    'background': '#ffffff',
+    'colors': [ '#AA48FB', '#12E8FD', '#80E9D1', '#5400A2', '#FF7BF7', '#F732B5', '#5116A3' ]
+}
+PALETTES.append(UNICORN)
+
+RAINBOW = {
+    'background': '#ffffff',
+    'colors': [ '#8300F2', '#158FE8', '#0FC8F3', '#25CD20', '#F1DE2C', '#F57921', '#DD1A1C' ]
+}
+PALETTES.append(RAINBOW)
 
 # DTG recommended colors
 RASPBERRY_RED = '#E60A96'  # (230, 10, 150)

@@ -152,7 +152,7 @@ def draw_eyes(ctx, x, x2, face_top, face_bottom, margin, color):
     eye_y = face_top + (face_bottom - face_top) / 3
     eye_x1 = (x2 - x - 2 * margin) / 3 + x + margin
     eye_x2 = 2 * (x2 - x - 2 * margin) / 3 + x + margin
-    eye_radius_base = random.randint(margin, margin * 2)
+    eye_radius_base = random.randint(margin * 2, int(margin * 2.8))
     if random.randint(1, 10) <= 5:
         draw_line(ctx, eye_x1, eye_y, eye_x2, eye_y, eye_radius_base / 3, color)
     pupil_radius_factor = random.randint(2, 5)
@@ -176,7 +176,7 @@ def draw_eyes(ctx, x, x2, face_top, face_bottom, margin, color):
 def draw_antennas(ctx, x, y, x2, y2, margin, palette):
     antenna_color = palettes.hex_to_tuple(random.choice(palette['colors']))
     antenna_height = random.randint(
-        (y2 - y - 2 * margin) // 5, (y2 - y - 2 * margin) // 2)
+        (y2 - y - 2 * margin) // 6, (y2 - y - 2 * margin) // 3)
     antenna_count = random.randint(1, 3)
     antenna_bottom = y + margin + antenna_height
     antenna_interval = (x2 - x - 2 * margin) / (antenna_count + 1)
@@ -221,9 +221,11 @@ def draw_rounded_rect(ctx, left, right, top, bottom, radius, color, outline=Fals
         ctx.stroke()
 
 
-
-
 def main(filename="output.png", img_width=2000, img_height=2000, count=5, palette=random.choice(palettes.PALETTES)):
+    while len(palette['colors']) < 3:
+        print(f"Palette {palette} has too few colors. Choosing another one.")
+        palette = random.choice(palettes.PALETTES)
+
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ctx = cairo.Context(ims)
 
@@ -245,11 +247,10 @@ def main(filename="output.png", img_width=2000, img_height=2000, count=5, palett
 def make_random(filename="output.png", p=random.choice(palettes.PALETTES), img_width=2000, img_height=2000):
     c = random.randint(3, 10)
     print(filename, os.path.basename(__file__), c, p)
-    main(filename=filename, count=c, palette=p,
-         img_height=img_height, img_width=img_width)
+    main(filename=filename, count=c, palette=p, img_height=img_height, img_width=img_width)
 
 
 if __name__ == "__main__":
-    for idx in range(5):
+    for idx in range(20):
         make_random(filename="output-{}.png".format(idx),
                     p=random.choice(palettes.PALETTES))

@@ -6,12 +6,12 @@ You can buy prints, tees, household goods and other productswith some of these w
 Each directory in this repo contains a different "dream" type for the Robot Molecule.
 
 - [Packings](#packings)
-  - [Circle packing](#circle-packing)
+  - [Flowering Certification (circle packing)](#flowering-certification-circle-packing)
   - [Square packing](#square-packing)
 - [Auto-Mondrian](#auto-mondrian)
 - [Fingers](#fingers)
-- [Nested squares](#nested-squares)
-- [Coral play](#coral-play)
+- [Tectonic Thermal Mass Refrigerator (nested squares)](#tectonic-thermal-mass-refrigerator-nested-squares)
+- [Obtuse Washing Machine (coral play)](#obtuse-washing-machine-coral-play)
 - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
 - [Random lines](#random-lines)
 - [Reeds](#reeds)
@@ -34,13 +34,13 @@ Each directory in this repo contains a different "dream" type for the Robot Mole
 - [Truchet tilings](#truchet-tilings)
   - [Tiled lines](#tiled-lines)
   - [Contrasting triangles](#contrasting-triangles)
-  - [Quarter circles](#quarter-circles)
+  - [Excitedly Inoffensive Mercury (quarter circles)](#excitedly-inoffensive-mercury-quarter-circles)
   - [Quarter squares](#quarter-squares)
 - [Shaky circles](#shaky-circles)
 - [Shaky squares](#shaky-squares)
 - [Lanterns](#lanterns)
-- [Triangles](#triangles)
-- [Triangles two](#triangles-two)
+- [Versed Maple (triangles)](#versed-maple-triangles)
+- [Dulled Air Ioniser (triangles two)](#dulled-air-ioniser-triangles-two)
 - [Bubbles](#bubbles)
 - [Fingers two](#fingers-two)
 - [Robots (Self portrait)](#robots-self-portrait)
@@ -51,7 +51,7 @@ Each directory in this repo contains a different "dream" type for the Robot Mole
 
 ## Packings
 
-### Circle packing
+### Flowering Certification (circle packing)
 
 Example outputs:
 
@@ -81,14 +81,14 @@ Example output:
 ![](fingers/output-6-5-6.png)
 ![](fingers/output-50-50-3.png)
 
-## Nested squares
+## Tectonic Thermal Mass Refrigerator (nested squares)
 
 Example output:
 
 ![](nested_squares/output-all-palettes.png)
 
 
-## Coral play
+## Obtuse Washing Machine (coral play)
 
 Example output:
 
@@ -272,7 +272,7 @@ Example output:
 
 More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tree/master/contrasting-triangles) directory and its [README](contrasting-triangles/README.md).
 
-###  Quarter circles
+###  Excitedly Inoffensive Mercury (quarter circles)
 
 Example output:
 
@@ -312,11 +312,11 @@ Example output:
 
 More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lanterns) directory and its [README](lanterns/README.md).
 
-##  Triangles
+##  Versed Maple (triangles)
 
 ![](images/triangles.png)
 
-##  Triangles two
+##  Dulled Air Ioniser (triangles two)
 
 ![](images/triangles_two.png)
 

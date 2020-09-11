@@ -52,10 +52,9 @@ experiments = [
 ]
 
 if __name__ == "__main__":
-    # p = palettes.PALETTE_2
-    # p['background'] = '#ffffff'
+    # p = palettes.RAINBOW
     # for idx, exp in enumerate(experiments):
-    #     exp(filename="output-{}.png".format(idx), p=p, img_width=9075, img_height=6201)
+    #     exp(filename="output-{}.png".format(idx), p=p, img_width=9075, img_height=9075)
     parser = argparse.ArgumentParser(description='Run the robot.')
     parser.add_argument('--count', type=int, default=10,
                         help='Number of art pieces to produce')
