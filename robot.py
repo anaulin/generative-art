@@ -26,6 +26,8 @@ from tiled_lines import tiled_lines
 from triangles import triangles
 from triangles_two import triangles_two
 
+from dreams.drops import Drops
+
 experiments = [
     auto_mondrian.make_random,
     bubbles.make_random,
@@ -49,6 +51,7 @@ experiments = [
     tiled_lines.make_random,
     triangles_two.make_random,
     triangles.make_random,
+    Drops.make_random
 ]
 
 if __name__ == "__main__":
