@@ -1,17 +1,17 @@
-# Generative art experiments  <!-- omit in toc -->
+# Robot Molecule Generative Art  <!-- omit in toc -->
 
-Buy prints, t-shirts and other products with some of the art from this repo:
-http://robotmolecule.com
+The code in this repo powers http://robotmolecule.com, where a new generative artwork is posted every hour.
+You can buy prints, tees, household goods and other productswith some of these works at https://anaulin.redbubble.com
 
-Each directory in this repo contains a different experiment, and has its own `README` and example outputs.
+Each directory in this repo contains a different "dream" type for the Robot Molecule.
 
 - [Packings](#packings)
-  - [Circle packing](#circle-packing)
+  - [Flowering Certification (circle packing)](#flowering-certification-circle-packing)
   - [Square packing](#square-packing)
 - [Auto-Mondrian](#auto-mondrian)
 - [Fingers](#fingers)
-- [Nested squares](#nested-squares)
-- [Coral play](#coral-play)
+- [Tectonic Thermal Mass Refrigerator (nested squares)](#tectonic-thermal-mass-refrigerator-nested-squares)
+- [Obtuse Washing Machine (coral play)](#obtuse-washing-machine-coral-play)
 - [Glitch-like lines in square cells](#glitch-like-lines-in-square-cells)
 - [Random lines](#random-lines)
 - [Reeds](#reeds)
@@ -34,30 +34,30 @@ Each directory in this repo contains a different experiment, and has its own `RE
 - [Truchet tilings](#truchet-tilings)
   - [Tiled lines](#tiled-lines)
   - [Contrasting triangles](#contrasting-triangles)
-  - [Quarter circles](#quarter-circles)
+  - [Excitedly Inoffensive Mercury (quarter circles)](#excitedly-inoffensive-mercury-quarter-circles)
   - [Quarter squares](#quarter-squares)
 - [Shaky circles](#shaky-circles)
 - [Shaky squares](#shaky-squares)
 - [Lanterns](#lanterns)
-- [Triangles](#triangles)
-- [Triangles two](#triangles-two)
+- [Versed Maple (triangles)](#versed-maple-triangles)
+- [Dulled Air Ioniser (triangles two)](#dulled-air-ioniser-triangles-two)
 - [Bubbles](#bubbles)
 - [Fingers two](#fingers-two)
+- [Self-portrait (robots)](#self-portrait-robots)
 - [Development](#development)
   - [Virtual env and dependency install](#virtual-env-and-dependency-install)
   - [Installing pycairo](#installing-pycairo)
+- [License](#license)
 
 ## Packings
 
-### Circle packing
+### Flowering Certification (circle packing)
 
 Example outputs:
 
 ![](circle_pack/images/circle-pack-palette1-1.jpg)
 
 ![](circle_pack/images/circle-pack-concentric-random-colors-6.jpg)
-
-More details and examples in the [Circle Packing directory](https://github.com/anaulin/generative-art/tree/master/circle_pack) and its [README](circle_pack/README.md).
 
 ### Square packing
 
@@ -66,16 +66,11 @@ Example output:
 ![](square-packing/images/linear-gradient-2.png)
 ![](square-packing/output-nested-1.png)
 
-More in the [square-packing directory](https://github.com/anaulin/generative-art/tree/master/square-packing/) and its [README](square-packing/README.md)
-
-
 ## Auto-Mondrian
 
 Example output:
 
 ![](auto_mondrian/output-1.png)
-
-More in the [auto_mondrian directory](https://github.com/anaulin/generative-art/tree/master/auto_mondrian/) and its [README](auto_mondrian/README.md).
 
 
 ## Fingers
@@ -86,25 +81,18 @@ Example output:
 ![](fingers/output-6-5-6.png)
 ![](fingers/output-50-50-3.png)
 
-More in the [fingers directory](https://github.com/anaulin/generative-art/tree/master/fingers/) and its [README](fingers/README.md).
-
-
-## Nested squares
+## Tectonic Thermal Mass Refrigerator (nested squares)
 
 Example output:
 
 ![](nested_squares/output-all-palettes.png)
 
-More in the [nested_squares directory](https://github.com/anaulin/generative-art/tree/master/nested_squares/) and its [README](nested_squares/README.md).
 
-
-## Coral play
+## Obtuse Washing Machine (coral play)
 
 Example output:
 
 ![](coral_play/output-4.png)
-
-More in the [coral_play directory](https://github.com/anaulin/generative-art/tree/master/coral_play/) and its [README](coral_play/README.md).
 
 
 ## Glitch-like lines in square cells
@@ -113,8 +101,6 @@ Example output:
 
 ![](lines-in-squares/output-2.png)
 
-More in the [lines-in-squares directory](https://github.com/anaulin/generative-art/tree/master/lines-in-squares/) and its [README](lines-in-squares/README.md).
-
 
 ## Random lines
 
@@ -122,8 +108,6 @@ Example output:
 
 ![](random-lines/output.png)
 ![](random-lines/output-4.png)
-
-More in the [random-lines directory](https://github.com/anaulin/generative-art/tree/master/random-lines) and its [README](random-lines/README.md).
 
 
 ## Reeds
@@ -188,12 +172,7 @@ More in the [squiggly-nodes](https://github.com/anaulin/generative-art/tree/mast
 
 ## Just circles
 
-Example output:
-
-![](just-circles/output-0.png)
-
-More in the [just-circles](https://github.com/anaulin/generative-art/tree/master/just-circles) directory and its [README](just-circles/README.md).
-
+![](images/just_circles.png)
 
 ## Curving lines
 
@@ -293,7 +272,7 @@ Example output:
 
 More in the [contrasting-triangles](https://github.com/anaulin/generative-art/tree/master/contrasting-triangles) directory and its [README](contrasting-triangles/README.md).
 
-###  Quarter circles
+###  Excitedly Inoffensive Mercury (quarter circles)
 
 Example output:
 
@@ -333,37 +312,25 @@ Example output:
 
 More in the [lanterns](https://github.com/anaulin/generative-art/tree/master/lanterns) directory and its [README](lanterns/README.md).
 
-##  Triangles
+##  Versed Maple (triangles)
 
-Example output:
+![](images/triangles.png)
 
-![](triangles/output-0.png)
+##  Dulled Air Ioniser (triangles two)
 
-More in the [triangles](https://github.com/anaulin/generative-art/tree/master/triangles) directory and its [README](triangles/README.md).
-
-##  Triangles two
-
-Example output:
-
-![](triangles_two/output-0.png)
-
-More in the [triangles_two](https://github.com/anaulin/generative-art/tree/master/triangles_two) directory and its [README](triangles_two/README.md).
+![](images/triangles_two.png)
 
 ##  Bubbles
 
-Example output:
-
-![](bubbles/output-0.png)
-
-More in the [bubbles](https://github.com/anaulin/generative-art/tree/master/bubbles) directory and its [README](bubbles/README.md).
+![](images/bubbles.png)
 
 ## Fingers two
 
-Example output:
+![](images/fingers_two.png)
 
-![](fingers_two/output-0.png)
+## Self-portrait (robots)
 
-More in the [fingers_two](https://github.com/anaulin/generative-art/tree/master/fingers_two) directory and its [README](fingers_two/README.md).
+![](images/robots.png)
 
 ## Development
 
@@ -396,3 +363,13 @@ If you get an error that says `'pkg-config' not found`, try:
 $ brew install pkg-config
 ```
 See more discussion on this error here: https://github.com/googlefonts/fontdiffenator/issues/38
+
+## License
+
+This code is available under an [AGPL-3.0 License](LICENSE). Images are
+available under a [Creative Commons Attribution-NonCommercial-ShareAlike
+license](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+If you'd like to use this code or images for commercial purposes, please
+contact me at ana@ulin.org. I'm also available for commissions and custom
+work.
