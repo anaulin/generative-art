@@ -29,7 +29,6 @@ class Drops:
 
     def make_drop(self, x, y, width, height):
         """Make a drop inside the given bounding box."""
-        print(x, y, width, height)
         self.ctx.save()
         self.ctx.translate(x, y)
 
