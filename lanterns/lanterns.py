@@ -23,7 +23,7 @@ def tile(ctx, x, y, size, cols):
         ctx.set_source_rgb(*colors.hex_to_tuple(random.choice(cols)))
         ctx.fill()
 
-def main(filename="output.png", img_width=2000, n=10, palette=random.choice(palettes.PALETTES)):
+def main(filename="output.png", img_width=2000, n=10, palette=random.choice(palettes.PALETTES), frame=0):
     img_height = img_width   # Work only with square images
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, img_width, img_height)
     ims.set_fallback_resolution(300.0, 300.0)
@@ -33,7 +33,6 @@ def main(filename="output.png", img_width=2000, n=10, palette=random.choice(pale
     ctx.set_source_rgb(*colors.hex_to_tuple(palette['background']))
     ctx.fill()
 
-    frame = img_width / 10  # empty space around image border
     size = (img_width - 2*frame) / n
     for r in range(n):
         for c in range(n):
