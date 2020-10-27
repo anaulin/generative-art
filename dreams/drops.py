@@ -32,13 +32,21 @@ class Drops:
         self.ctx.save()
         self.ctx.translate(x, y)
 
-        color = palettes.hex_to_tuple(random.choice(self.palette['colors']))
+        [color, inner_color] = [ palettes.hex_to_tuple(c) for c in random.sample(self.palette['colors'], 2) ]
         radius = width // 2
-        cx = radius
-        cy = height - radius
-        top_middle = (cx, 0)
-        (tang1, tang2) = self.tangential_points(cx, cy, radius, *top_middle)
-        self.ctx.move_to(*top_middle)
+        if random.choice([True, False]):
+            # Pointing up
+            cx = radius
+            cy = height - radius
+            point = (cx, 0)
+        else:
+            # Pointing down
+            cx = radius
+            cy = radius
+            point = (cx, height)
+
+        (tang1, tang2) = self.tangential_points(cx, cy, radius, *point)
+        self.ctx.move_to(*point)
         self.ctx.line_to(*tang1)
         self.ctx.line_to(*tang2)
         self.ctx.set_source_rgb(*color)
@@ -47,6 +55,10 @@ class Drops:
         self.ctx.arc(cx, cy, radius, 0, 2 * pi)
         self.ctx.set_source_rgb(*color)
         self.ctx.fill()
+
+        if random.choice([True, False]):
+            inner_radius = radius // 2
+            self.ctx.arc(cx, cy, inner_radius, 0, 2 * pi)
 
         self.ctx.restore()
 
@@ -86,6 +98,6 @@ class Drops:
 
 
 if __name__ == "__main__":
-    for idx in range(5):
+    for idx in range(4):
         Drops.make_random(filename="output-{}.png".format(idx),
                           p=random.choice(palettes.PALETTES))
