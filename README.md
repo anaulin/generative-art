@@ -48,6 +48,8 @@ Each directory in this repo contains a different "dream" type for the Robot Mole
 - [Development](#development)
   - [Virtual env and dependency install](#virtual-env-and-dependency-install)
   - [Installing pycairo](#installing-pycairo)
+- [Installing Shapely dependencies](#installing-shapely-dependencies)
+- [Installing Pillow dependencies](#installing-pillow-dependencies)
 - [License](#license)
 
 ## Packings
@@ -368,6 +370,19 @@ If you get an error that says `'pkg-config' not found`, try:
 $ brew install pkg-config
 ```
 See more discussion on this error here: https://github.com/googlefonts/fontdiffenator/issues/38
+
+## Installing Shapely dependencies
+
+It needs the `geos` library:
+```bash
+$ brew install geos
+```
+
+## Installing Pillow dependencies
+
+```
+$ brew install libjpeg
+```
 
 ## License
 
