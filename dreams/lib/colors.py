@@ -32,6 +32,10 @@ def hex_to_tuple(hex):
     hex = hex.lstrip('#')
     return tuple(int(hex[i:i+2], 16)/255 for i in (0, 2, 4))
 
+def hex_to_255_tuple(hex):
+    hex = hex.lstrip('#')
+    return tuple(int(hex[i:i+2], 16) for i in (0, 2, 4))
+
 # For testing
 def draw_colors(filename, colors):
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, IMG_WIDTH, IMG_HEIGHT)

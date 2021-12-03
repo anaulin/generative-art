@@ -2,6 +2,9 @@ wheel
 pycairo
 shapely
 
+numpy
+opencv-python
+
 pylint
 autopep8
 
